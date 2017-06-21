@@ -92,7 +92,7 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
         cell.contentView.clipsToBounds = true
-        cell.backgroundColor = .black
+        cell.backgroundColor = .purple
         let layer = cell.layer
         let config = GarlandConfig.shared
         layer.shadowOffset = config.cardShadowOffset

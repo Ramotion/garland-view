@@ -36,10 +36,10 @@ class ViewController: GarlandViewController {
         super.viewWillAppear(animated)
         
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
-        //collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView = garlandView.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
-        collectionView.register(UINib(nibName: "CollectionHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header")
+        collectionView.register(UINib(nibName: "CollectionHeader", bundle: nil), forCellWithReuseIdentifier: "Header")
+
         collectionView.backgroundColor = .clear
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -78,29 +78,6 @@ class ViewController: GarlandViewController {
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        for cell in collectionView.visibleCells {
-            let cellSnap = cell.snapshotView(afterScreenUpdates: true)
-            cellSnap?.frame = cell.frame
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        switch kind {
-        case UICollectionElementKindSectionHeader:
-            let reusableview = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! CollectionCell
-            
-            reusableview.frame = CGRect(x: 0, y: 0, width: GarlandConfig.shared.cardsSize.width, height: GarlandConfig.shared.cardsSize.height)
-            reusableview.backgroundColor = .green
-            //do other header related calls or settups
-            return reusableview
-            
-            
-        default:  fatalError("Unexpected element kind")
-        }
-    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

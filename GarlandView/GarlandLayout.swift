@@ -57,17 +57,17 @@ class GarlandLayout: UICollectionViewFlowLayout {
         
         guard let collectionView = self.collectionView else { return attributes }
         
-        let startOffset = (attributes.frame.origin.x - collectionView.contentOffset.x - sectionInset.left) / attributes.frame.width
-        let maxScale: CGFloat = 1.2
-        let minScale: CGFloat = 1.0
-        
-        let divided = abs(startOffset) / 10
-        let scale = max(minScale, min(maxScale, 1.0 + divided))
-        
-        if let contentView = collectionView.cellForItem(at: attributes.indexPath)?.contentView, let parallaxView = contentView.viewWithTag(99) {
-            parallaxView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        if let header = collectionView.viewWithTag(99) {
+            
+            let startOffset = (collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + attributes.frame.height) / attributes.frame.height
+            let maxHeight: CGFloat = 1.0
+            let minHeight: CGFloat = 0.8
+            
+            let divided = startOffset / 3
+            let height = max(minHeight, min(maxHeight, 1.0 - divided))
+            header.frame.origin.y = collectionView.contentOffset.y
+            header.transform = CGAffineTransform(scaleX: 1.0, y: height)
         }
-        
         return attributes
     }
 }

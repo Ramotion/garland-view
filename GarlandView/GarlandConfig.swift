@@ -16,9 +16,11 @@ public struct GarlandConfig {
     /// Override this property or change values directly.
     public static var shared = GarlandConfig()
     
+    public var parallaxHeaderOffset: CGFloat = 40
+    
     /// Side insets of GlidiingCollection view.
     /// Only left & right side insets will take effect.
-    public var sideInsets = UIEdgeInsets(top: 10, left: 7, bottom: 10, right: 7)
+    public var sideInsets = UIEdgeInsets(top: 10, left: 4.5, bottom: 10, right: 4)
     
     /// Duration of animation between GlidingCollection sections.
     public var animationDuration: Double = 0.6

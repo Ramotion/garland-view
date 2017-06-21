@@ -31,6 +31,11 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         fromVC.view.alpha = 0.0
         toVC.view.alpha = 0.0
         
+        let fromHeaderSnapshot = fromVC.header.snapshotView(afterScreenUpdates: false)
+        let headerCoord = fromCollection.convert(CGPoint(x: fromVC.header.frame.origin.x, y: fromVC.header.frame.origin.y), to: nil)
+        fromHeaderSnapshot?.frame = CGRect(x: headerCoord.x, y: headerCoord.y - 40, width: fromVC.header.frame.width, height: fromVC.header.frame.height)
+        containerView.addSubview(fromHeaderSnapshot!)
+        
         var visibleFromSnapshots = [UIView?]()
         var convertedCellCoords = [CGPoint]()
         var cellSize = [CGSize]()
@@ -62,6 +67,13 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 4/5, animations: {
                 
+                var headerX: CGFloat = self.finalFromXFrame
+                if self.finalFromXFrame == 0 {
+                    headerX -= (fromHeaderSnapshot?.frame.width)!
+                }
+                fromHeaderSnapshot?.frame = CGRect(x: headerX, y: (fromHeaderSnapshot?.frame.origin.y)! + ((fromHeaderSnapshot?.frame.height)! - (fromHeaderSnapshot?.frame.height)!/1.6), width: (fromHeaderSnapshot?.frame.width)!/1.6, height: (fromHeaderSnapshot?.frame.height)!/1.6)
+                fromHeaderSnapshot?.backgroundColor = .green
+                
                 for snapshot in visibleFromSnapshots {
                     snapshot?.frame = CGRect(x: self.finalFromXFrame, y: (snapshot?.frame.origin.y)!, width: 0, height: 0)
                     snapshot?.alpha = 0.0
@@ -84,6 +96,7 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
             for snap in visibleToSnapshots {
                 snap?.removeFromSuperview()
             }
+            fromHeaderSnapshot?.removeFromSuperview()
             fromVC.view.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })

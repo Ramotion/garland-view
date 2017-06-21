@@ -59,7 +59,7 @@ fileprivate extension GarlandCollection {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.delaysContentTouches = true
-        collectionView.clipsToBounds = false
+        collectionView.clipsToBounds = true
         collectionView.collectionViewLayout.invalidateLayout()
     }
 }
@@ -71,9 +71,7 @@ extension GarlandCollection: UIScrollViewDelegate {
 extension GarlandCollection: GarlandLayoutDelegate {
     
     func collectionViewDidScroll() {
-        for cell in self.collectionView.visibleCells {
-            print("cell")
-        }
+        
     }
 }
 

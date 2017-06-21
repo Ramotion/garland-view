@@ -26,8 +26,6 @@
 		4EC9B06F1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B06E1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift */; };
 		4EC9B0711EF4171A00A0A0AF /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC9B0701EF4171A00A0A0AF /* SecondViewController.xib */; };
 		4EC9B0731EF6E45A00A0A0AF /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC9B0721EF6E45A00A0A0AF /* ViewController.xib */; };
-		4EDC22641EF9260E007C92E8 /* CollectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDC22631EF9260D007C92E8 /* CollectionHeader.xib */; };
-		4EDC22661EF9369B007C92E8 /* CollectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC22651EF9369B007C92E8 /* CollectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +74,6 @@
 		4EC9B06E1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandCollectionDelegate.swift; sourceTree = "<group>"; };
 		4EC9B0701EF4171A00A0A0AF /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		4EC9B0721EF6E45A00A0A0AF /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		4EDC22631EF9260D007C92E8 /* CollectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeader.xib; sourceTree = "<group>"; };
-		4EDC22651EF9369B007C92E8 /* CollectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +166,6 @@
 			children = (
 				4E0EB0871EEEC94C00DD634C /* CollectionCell.swift */,
 				4E0EB0891EEEC96200DD634C /* CollectionCell.xib */,
-				4EDC22631EF9260D007C92E8 /* CollectionHeader.xib */,
-				4EDC22651EF9369B007C92E8 /* CollectionHeader.swift */,
 			);
 			name = CollectionCell;
 			sourceTree = "<group>";
@@ -282,7 +276,6 @@
 			files = (
 				4E0EB07D1EEEB80F00DD634C /* LaunchScreen.storyboard in Resources */,
 				4E0EB07A1EEEB80F00DD634C /* Assets.xcassets in Resources */,
-				4EDC22641EF9260E007C92E8 /* CollectionHeader.xib in Resources */,
 				4E0EB0781EEEB80D00DD634C /* Main.storyboard in Resources */,
 				4E0EB08A1EEEC96200DD634C /* CollectionCell.xib in Resources */,
 				4EC9B0731EF6E45A00A0A0AF /* ViewController.xib in Resources */,
@@ -313,7 +306,6 @@
 				4E0EB0751EEEB80C00DD634C /* ViewController.swift in Sources */,
 				4E0EB0731EEEB80C00DD634C /* AppDelegate.swift in Sources */,
 				4EC9B0691EF1F96000A0A0AF /* SecondViewController.swift in Sources */,
-				4EDC22661EF9369B007C92E8 /* CollectionHeader.swift in Sources */,
 				4E0EB0881EEEC94C00DD634C /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

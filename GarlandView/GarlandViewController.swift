@@ -12,6 +12,7 @@ import UIKit
 open class GarlandViewController: UIViewController {
     
     @IBOutlet open var garlandView: GarlandCollection!
+    open var header: UIView = UIView()
     
     fileprivate let garlandPresentAnimationController = GarlandPresentAnimationController()
     
@@ -32,27 +33,16 @@ open class GarlandViewController: UIViewController {
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = self
         self.isPresenting = false
+        self.header.frame.size = GarlandConfig.shared.cardsSize
+        self.header.frame.origin.x = UIScreen.main.bounds.width/2 - self.header.frame.width/2
+        self.header.frame.origin.y = garlandView.frame.origin.y + GarlandConfig.shared.parallaxHeaderOffset - header.frame.height
+        self.header.backgroundColor = .black
+        self.header.tag = 99
+        self.garlandView.collectionView.insertSubview(header, at: 99)
+        self.garlandView.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
 //        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
 //        self.view.addGestureRecognizer(panGesture)
     }
-    
-//    func handleGesture(gesture: UIPanGestureRecognizer) {
-//        let velocity = gesture.velocity(in: self.view)
-//        let translation = gesture.translation(in: self.view)
-//        if velocity.x > 0, translation.x > 20, !isPresenting {
-//            isPresenting = true
-//            print("panning right")
-//            animationXDest = 0
-//            delegate?.gestureWasPannedForTransition()
-//            //present(secondViewController, animated: true, completion: nil)
-//        } else if translation.x < -20, !isPresenting {
-//            print("panning left")
-//            isPresenting = true
-//            animationXDest = UIScreen.main.bounds.width
-//            delegate?.gestureWasPannedForTransition()
-//            //present(secondViewController, animated: true, completion: nil)
-//        }
-//    }
     
 }
 

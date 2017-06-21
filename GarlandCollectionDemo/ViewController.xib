@@ -25,12 +25,11 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Qso-aR-1KY" secondAttribute="bottom" id="0Do-2y-NN0"/>
-                <constraint firstItem="Qso-aR-1KY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="4Bw-aJ-opE"/>
                 <constraint firstAttribute="trailing" secondItem="Qso-aR-1KY" secondAttribute="trailing" id="6Lp-hz-9J1"/>
                 <constraint firstItem="Qso-aR-1KY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cdL-CZ-GSi"/>
+                <constraint firstItem="Qso-aR-1KY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="wSk-L8-XUo"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
