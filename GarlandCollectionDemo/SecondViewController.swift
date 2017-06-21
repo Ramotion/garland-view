@@ -65,16 +65,12 @@ class SecondViewController: GarlandViewController {
         if velocity.x > 0, translation.x > 20, !isPresenting {
             isPresenting = true
             print("panning right")
-            //DispatchQueue.main.sync {
-                present(firstViewController, animated: true, completion: nil)
-            //}
+            present(firstViewController, animated: true, completion: nil)
         } else if translation.x < -20, !isPresenting {
             print("panning left")
             isPresenting = true
             firstViewController.animationXDest = UIScreen.main.bounds.width
-            //DispatchQueue.main.sync {
-                present(firstViewController, animated: true, completion: nil)
-            //}
+            present(firstViewController, animated: true, completion: nil)
         }
     }
 }

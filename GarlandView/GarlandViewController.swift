@@ -40,8 +40,6 @@ open class GarlandViewController: UIViewController {
         self.header.tag = 99
         self.garlandView.collectionView.insertSubview(header, at: 99)
         self.garlandView.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
-//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
-//        self.view.addGestureRecognizer(panGesture)
     }
     
 }
