@@ -45,7 +45,7 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         
         let toHeaderSnapshot = fromVC.header.snapshotView(afterScreenUpdates: false)
         let toHeaderCoord = fromCollection.convert(CGPoint(x: fromVC.header.frame.origin.x, y: fromVC.header.frame.origin.y), to: nil)
-        toHeaderSnapshot?.frame = CGRect(x: headerToX, y: toHeaderCoord.y, width: fromVC.header.frame.width/1.6, height: fromVC.header.frame.height/1.6)
+        toHeaderSnapshot?.frame = CGRect(x: headerToX, y: toHeaderCoord.y + ((toHeaderSnapshot?.frame.height)! - (toHeaderSnapshot?.frame.height)!/1.6)/2, width: fromVC.header.frame.width/1.6, height: fromVC.header.frame.height/1.6)
         containerView.addSubview(toHeaderSnapshot!)
         
         var visibleFromSnapshots = [UIView?]()
@@ -75,13 +75,13 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         AnimationHelper.perspectiveTransformForContainerView(containerView: containerView)
         let duration = transitionDuration(using: transitionContext)
         
-        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeCubic, animations: {
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 4/5, animations: {
                 
-                fromHeaderSnapshot?.frame = CGRect(x: headerFromX, y: (fromHeaderSnapshot?.frame.origin.y)! + ((fromHeaderSnapshot?.frame.height)! - (fromHeaderSnapshot?.frame.height)!/1.6), width: (fromHeaderSnapshot?.frame.width)!/1.6, height: (fromHeaderSnapshot?.frame.height)!/1.6)
+                fromHeaderSnapshot?.frame = CGRect(x: headerFromX, y: (fromHeaderSnapshot?.frame.origin.y)! + ((fromHeaderSnapshot?.frame.height)! - (fromHeaderSnapshot?.frame.height)!/1.6)/2, width: (fromHeaderSnapshot?.frame.width)!/1.6, height: (fromHeaderSnapshot?.frame.height)!/1.6)
                 
-                toHeaderSnapshot?.frame = CGRect(x: fromVC.header.frame.origin.x, y: toHeaderCoord.y, width: fromVC.header.frame.width, height: fromVC.header.frame.height)
+                toHeaderSnapshot?.frame = CGRect(x: toHeaderCoord.x, y: toHeaderCoord.y, width: fromVC.header.frame.width, height: fromVC.header.frame.height)
                 
                 for snapshot in visibleFromSnapshots {
                     snapshot?.frame = CGRect(x: self.finalFromXFrame, y: (snapshot?.frame.origin.y)!, width: 0, height: 0)

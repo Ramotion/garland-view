@@ -23,7 +23,7 @@ public struct GarlandConfig {
     public var sideInsets = UIEdgeInsets(top: 10, left: 4.5, bottom: 10, right: 4)
     
     /// Duration of animation between GlidingCollection sections.
-    public var animationDuration: Double = 0.6
+    public var animationDuration: Double = 0.7
     
     /// Spacing between vertical stack of items.
     public var buttonsSpacing: CGFloat = 15
