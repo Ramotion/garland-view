@@ -3,7 +3,7 @@
 //  GarlandView
 //
 //  Created by Slava Юсупов on 15.06.17.
-//  Copyright © 2017 Slava Юсупов. All rights reserved.
+//  Copyright © 2017 Ramotion Inc. All rights reserved.
 //
 
 import Foundation
