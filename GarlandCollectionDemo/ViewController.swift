@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  GarlandCollectionDemo
 //
-//  Created by Slava Юсупов on 12.06.17.
-//  Copyright © 2017 Ramotion Inc. All rights reserved.
+//  Created by Slava Yusupov.
+//  Copyright © 2017 Ramotion. All rights reserved.
 //
 
 import UIKit
@@ -14,8 +14,6 @@ class ViewController: GarlandViewController {
     var collectionView: UICollectionView!
     
     var latestDirection: Int = 0
-    
-    
     
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)   {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -29,7 +27,6 @@ class ViewController: GarlandViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +35,7 @@ class ViewController: GarlandViewController {
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
         collectionView = garlandView.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
-        collectionView.register(UINib(nibName: "CollectionHeader", bundle: nil), forCellWithReuseIdentifier: "Header")
-
+        
         collectionView.backgroundColor = .clear
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
@@ -58,23 +54,17 @@ class ViewController: GarlandViewController {
         let velocity = gesture.velocity(in: self.view)
         let translation = gesture.translation(in: self.view)
         let secondViewController = SecondViewController.init(nibName: "SecondViewController", bundle: nil)
-        if velocity.x > 0, translation.x > 20, !isPresenting {
+        if velocity.x > 0, translation.x > 15, !isPresenting {
             isPresenting = true
-            for cell in garlandView.collectionView.visibleCells {
-                let cellSnap = cell.snapshotView(afterScreenUpdates: true)
-                cellSnap?.frame = cell.frame
-            }
             print("panning right")
-            self.animationXDest = 0
+            secondViewController.animationXDest = UIScreen.main.bounds.width
             present(secondViewController, animated: true, completion: nil)
-        } else if translation.x < -20, !isPresenting {
+        } else if translation.x < -15, !isPresenting {
             print("panning left")
             isPresenting = true
-            secondViewController.animationXDest = UIScreen.main.bounds.width
             present(secondViewController, animated: true, completion: nil)
         }
     }
-
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -89,24 +79,25 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
-        cell.contentView.clipsToBounds = true
         
-        let layer = cell.layer
-        let config = GarlandConfig.shared
-        layer.shadowOffset = config.cardShadowOffset
-        layer.shadowColor = config.cardShadowColor.cgColor
-        layer.shadowOpacity = config.cardShadowOpacity
-        layer.shadowRadius = config.cardShadowRadius
-        
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = indexPath.item
-        print("Selected item #\(item)")
+        self.selectedCardIndex = indexPath
+        let cardController = UserCardViewController.init(nibName: "UserCardViewController", bundle: nil)
+        present(cardController, animated: true, completion: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let startOffset = (collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
+        let maxHeight: CGFloat = 1.0
+        let minHeight: CGFloat = 0.5
+
+        let divided = startOffset / 3
+        let height = max(minHeight, min(maxHeight, 1.0 - divided))
+        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height
     }
 }
 

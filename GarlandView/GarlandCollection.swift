@@ -2,8 +2,8 @@
 //  GarlandCollectionViewController.swift
 //  garland-view
 //
-//  Created by Slava Юсупов on 08.06.17.
-//  Copyright © 2017 Ramotion Inc. All rights reserved.
+//  Created by Slava Yusupov.
+//  Copyright © 2017 Ramotion. All rights reserved.
 //
 
 import Foundation
@@ -49,29 +49,17 @@ fileprivate extension GarlandCollection {
         layout.itemSize = config.cardsSize
         layout.minimumLineSpacing = config.cardsSpacing
         layout.scrollDirection = .vertical
-        let insets = config.sideInsets
-        let rightInset = UIScreen.main.bounds.width - config.cardsSize.width - insets.left
-        layout.sectionInset = UIEdgeInsets(top: 0, left: insets.left, bottom: 0, right: rightInset)
-        layout.delegate = self
-        
+        let sideInset = (UIScreen.main.bounds.width - config.cardsSize.width)/2
+        layout.sectionInset = UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         containerView.insertSubview(collectionView, at: 0)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        //collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = true
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.delaysContentTouches = true
         collectionView.clipsToBounds = true
         collectionView.collectionViewLayout.invalidateLayout()
-    }
-}
-
-extension GarlandCollection: UIScrollViewDelegate {
-    
-}
-
-extension GarlandCollection: GarlandLayoutDelegate {
-    
-    func collectionViewDidScroll() {
-        
     }
 }
 

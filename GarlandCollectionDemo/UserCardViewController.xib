@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserCardViewController">
+            <connections>
+                <outlet property="avatar" destination="bSy-NQ-obi" id="qge-ff-wRV"/>
+                <outlet property="background" destination="MXB-mq-11R" id="qDS-lY-lf9"/>
+                <outlet property="card" destination="VEM-NS-j3Q" id="7C5-tT-Nm4"/>
+                <outlet property="closeButton" destination="HVf-VM-trq" id="LJP-bi-PDr"/>
+                <outlet property="collection" destination="71i-ad-t8W" id="ETy-Cd-h5p"/>
+                <outlet property="detailsButton" destination="PKz-mk-yWq" id="diU-QS-AeO"/>
+                <outlet property="garlandCardCollection" destination="71i-ad-t8W" id="rz6-Jd-J9x"/>
+                <outlet property="headerImageView" destination="h1p-tK-87y" id="crV-tW-a6C"/>
+                <outlet property="view" destination="iN0-l3-epB" id="RpE-dL-sP2"/>
+                <outletCollection property="cardConstraits" destination="5ad-dg-ct9" collectionClass="NSMutableArray" id="v8w-nU-JSN"/>
+                <outletCollection property="cardConstraits" destination="1IR-vP-N8Q" collectionClass="NSMutableArray" id="083-iU-XeX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXB-mq-11R">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.2627450980392157" green="0.28627450980392155" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_bg" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-tK-87y">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                </imageView>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEM-NS-j3Q">
+                    <rect key="frame" x="37" y="140" width="300" height="430"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="71i-ad-t8W">
+                            <rect key="frame" x="0.0" y="160" width="300" height="270"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="15" id="caS-Z4-cIp" customClass="GarlandCardLayout" customModule="GarlandView">
+                                <size key="itemSize" width="300" height="140"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="opW-pT-GhB"/>
+                                <outlet property="delegate" destination="-1" id="CzG-Ca-Apw"/>
+                            </connections>
+                        </collectionView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 years • Los Angeles,  LA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px9-Nz-e6h">
+                            <rect key="frame" x="81" y="91" width="138" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.7843137255" green="0.78823529410000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Be honest, be kind, in equal measure but in that order.”" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8N-o5-ccC">
+                            <rect key="frame" x="20" y="125" width="260" height="31.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.69019607839999997" green="0.81960784310000001" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Px9-Nz-e6h" firstAttribute="centerX" secondItem="VEM-NS-j3Q" secondAttribute="centerX" id="AcV-uq-e7r"/>
+                        <constraint firstItem="71i-ad-t8W" firstAttribute="top" secondItem="VEM-NS-j3Q" secondAttribute="top" constant="160" id="EdL-Ik-6pK"/>
+                        <constraint firstAttribute="trailing" secondItem="71i-ad-t8W" secondAttribute="trailing" id="RI1-BW-bbJ"/>
+                        <constraint firstAttribute="bottom" secondItem="71i-ad-t8W" secondAttribute="bottom" id="TIM-dA-6gj"/>
+                        <constraint firstItem="R8N-o5-ccC" firstAttribute="leading" secondItem="VEM-NS-j3Q" secondAttribute="leading" constant="20" id="TSE-EI-Dmu"/>
+                        <constraint firstItem="71i-ad-t8W" firstAttribute="leading" secondItem="VEM-NS-j3Q" secondAttribute="leading" id="oSY-LS-eRc"/>
+                        <constraint firstAttribute="trailing" secondItem="R8N-o5-ccC" secondAttribute="trailing" constant="20" id="uTG-DL-voq"/>
+                        <constraint firstItem="R8N-o5-ccC" firstAttribute="top" secondItem="Px9-Nz-e6h" secondAttribute="bottom" constant="5" id="zXM-DK-qbv"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVf-VM-trq">
+                    <rect key="frame" x="150.5" y="590" width="74" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="9CM-OM-0qH"/>
+                        <constraint firstAttribute="width" constant="74" id="XZD-WW-RDe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="15"/>
+                    <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-52"/>
+                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="16"/>
+                    <state key="normal" title="CLOSE" image="Close_button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-fM-llg" userLabel="Connect Button">
+                    <rect key="frame" x="57" y="590" width="74" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="BMi-JC-U78"/>
+                        <constraint firstAttribute="width" constant="74" id="Hu9-5T-Cft"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="15"/>
+                    <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-52"/>
+                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="16"/>
+                    <state key="normal" title="CONNECT" image="Connect_button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKz-mk-yWq">
+                    <rect key="frame" x="243" y="590" width="74" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0YE-Po-iGV"/>
+                        <constraint firstAttribute="width" constant="74" id="Tai-M6-r6L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="15"/>
+                    <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-52"/>
+                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="16"/>
+                    <state key="normal" title="DETAILS" image="Details_button">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_1" translatesAutoresizingMaskIntoConstraints="NO" id="bSy-NQ-obi">
+                    <rect key="frame" x="152" y="112" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="Mqd-oA-mU1"/>
+                        <constraint firstAttribute="height" constant="70" id="OtH-Jw-Ypt"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charles  Bailey" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS7-YD-ici">
+                    <rect key="frame" x="159" y="190" width="57" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="MXB-mq-11R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0eX-cI-Hpx"/>
+                <constraint firstItem="VEM-NS-j3Q" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="21.5" id="1IR-vP-N8Q"/>
+                <constraint firstAttribute="trailing" secondItem="MXB-mq-11R" secondAttribute="trailing" id="1MX-OW-UuH"/>
+                <constraint firstItem="DAS-fM-llg" firstAttribute="top" secondItem="VEM-NS-j3Q" secondAttribute="bottom" constant="20" id="4po-fi-Smr"/>
+                <constraint firstItem="VEM-NS-j3Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="37" id="5ad-dg-ct9"/>
+                <constraint firstItem="VEM-NS-j3Q" firstAttribute="top" secondItem="h1p-tK-87y" secondAttribute="bottom" constant="-60" id="6ys-cG-BY8"/>
+                <constraint firstItem="PKz-mk-yWq" firstAttribute="top" secondItem="VEM-NS-j3Q" secondAttribute="bottom" constant="20" id="7Iq-BL-82Q"/>
+                <constraint firstItem="HVf-VM-trq" firstAttribute="top" secondItem="VEM-NS-j3Q" secondAttribute="bottom" constant="20" id="EFV-eE-YFS"/>
+                <constraint firstItem="h1p-tK-87y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="P1N-rX-KOx"/>
+                <constraint firstItem="VEM-NS-j3Q" firstAttribute="trailing" secondItem="PKz-mk-yWq" secondAttribute="trailing" constant="20" id="Pc8-Pd-met"/>
+                <constraint firstItem="DAS-fM-llg" firstAttribute="leading" secondItem="71i-ad-t8W" secondAttribute="leading" constant="20" id="Pde-Kx-xoZ"/>
+                <constraint firstAttribute="bottom" secondItem="MXB-mq-11R" secondAttribute="bottom" id="QES-gJ-5fb"/>
+                <constraint firstItem="VEM-NS-j3Q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RFF-J4-RNd"/>
+                <constraint firstItem="MXB-mq-11R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SDL-LV-1S2"/>
+                <constraint firstItem="TS7-YD-ici" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZhN-Oa-qFf"/>
+                <constraint firstItem="TS7-YD-ici" firstAttribute="top" secondItem="bSy-NQ-obi" secondAttribute="bottom" constant="8" id="bDK-25-TAs"/>
+                <constraint firstItem="VEM-NS-j3Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="140" id="chI-vg-lUt"/>
+                <constraint firstAttribute="trailing" secondItem="h1p-tK-87y" secondAttribute="trailing" id="k5S-5R-AZH"/>
+                <constraint firstItem="bSy-NQ-obi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="112" id="kcJ-gf-qwx"/>
+                <constraint firstItem="Px9-Nz-e6h" firstAttribute="top" secondItem="TS7-YD-ici" secondAttribute="bottom" constant="5" id="m3T-GS-lbc"/>
+                <constraint firstItem="HVf-VM-trq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qlP-pl-Ek7"/>
+                <constraint firstItem="bSy-NQ-obi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vi6-X3-nX3"/>
+                <constraint firstItem="h1p-tK-87y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yt8-f8-qnJ"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Close_button" width="48" height="48"/>
+        <image name="Connect_button" width="44" height="44"/>
+        <image name="Details_button" width="45" height="45"/>
+        <image name="avatar_1" width="70" height="70"/>
+        <image name="card_bg" width="750" height="671"/>
+    </resources>
+</document>

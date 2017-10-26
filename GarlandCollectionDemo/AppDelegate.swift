@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  GarlandCollectionDemo
 //
-//  Created by Slava Юсупов on 12.06.17.
-//  Copyright © 2017 Ramotion Inc. All rights reserved.
+//  Created by Slava Yusupov.
+//  Copyright © 2017 Ramotion. All rights reserved.
 //
 
 import UIKit
@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Allocate memory for an instance of the 'MainViewController' class
         let mainViewController = ViewController.init(nibName: "ViewController", bundle: nil)
+        
         
         // Set the root view controller of the app's window
         window!.rootViewController = mainViewController

@@ -2,8 +2,8 @@
 //  SecondViewController.swift
 //  GarlandView
 //
-//  Created by Slava Юсупов on 15.06.17.
-//  Copyright © 2017 Ramotion Inc. All rights reserved.
+//  Created by Slava Yusupov.
+//  Copyright © 2017 Ramotion. All rights reserved.
 //
 
 import Foundation
@@ -24,22 +24,17 @@ class SecondViewController: GarlandViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         self.transitioningDelegate = self
         self.modalPresentationStyle = .custom
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 200, height: 120)
-        
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
-        //collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView = garlandView.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = .clear
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.view.addSubview(collectionView)
+        
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
         self.view.addGestureRecognizer(panGesture)
@@ -65,11 +60,11 @@ class SecondViewController: GarlandViewController {
         if velocity.x > 0, translation.x > 20, !isPresenting {
             isPresenting = true
             print("panning right")
+            firstViewController.animationXDest = UIScreen.main.bounds.width
             present(firstViewController, animated: true, completion: nil)
         } else if translation.x < -20, !isPresenting {
             print("panning left")
             isPresenting = true
-            firstViewController.animationXDest = UIScreen.main.bounds.width
             present(firstViewController, animated: true, completion: nil)
         }
     }
@@ -87,23 +82,24 @@ extension SecondViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
-        cell.contentView.clipsToBounds = true
-        cell.backgroundColor = .purple
-        let layer = cell.layer
-        let config = GarlandConfig.shared
-        layer.shadowOffset = config.cardShadowOffset
-        layer.shadowColor = config.cardShadowColor.cgColor
-        layer.shadowOpacity = config.cardShadowOpacity
-        layer.shadowRadius = config.cardShadowRadius
         
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = indexPath.item
-        print("Selected item #\(item)")
+        self.selectedCardIndex = indexPath
+        let cardController = UserCardViewController.init(nibName: "UserCardViewController", bundle: nil)
+        present(cardController, animated: true, completion: nil)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let startOffset = (collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
+        let maxHeight: CGFloat = 1.0
+        let minHeight: CGFloat = 0.5
+        
+        let divided = startOffset / 3
+        let height = max(minHeight, min(maxHeight, 1.0 - divided))
+        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height
     }
 }

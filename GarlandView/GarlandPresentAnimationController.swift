@@ -2,8 +2,8 @@
 //  GarlandPresentAnimationController.swift
 //  GarlandView
 //
-//  Created by Slava Юсупов on 15.06.17.
-//  Copyright © 2017 Ramotion Inc. All rights reserved.
+//  Created by Slava Yusupov.
+//  Copyright © 2017 Ramotion. All rights reserved.
 //
 
 import Foundation
@@ -26,51 +26,71 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         }
         
         let containerView = transitionContext.containerView
+        //toCollection.reloadData()
         containerView.frame = fromVC.view.frame
         
-        fromVC.view.alpha = 0.0
-        toVC.view.alpha = 0.0
-        
-        let fromHeaderSnapshot = fromVC.header.snapshotView(afterScreenUpdates: false)
-        let fromHeaderCoord = fromCollection.convert(CGPoint(x: fromVC.header.frame.origin.x, y: fromVC.header.frame.origin.y), to: nil)
-        fromHeaderSnapshot?.frame = CGRect(x: fromHeaderCoord.x, y: fromHeaderCoord.y, width: fromVC.header.frame.width, height: fromVC.header.frame.height)
-        containerView.addSubview(fromHeaderSnapshot!)
-        
-        var headerFromX: CGFloat = self.finalFromXFrame
-        var headerToX: CGFloat = 0 - fromVC.header.frame.width
-        if self.finalFromXFrame == 0 {
-            headerFromX -= (fromHeaderSnapshot?.frame.width)!
-            headerToX = UIScreen.main.bounds.width
-        }
-        
-        let toHeaderSnapshot = fromVC.header.snapshotView(afterScreenUpdates: false)
-        let toHeaderCoord = fromCollection.convert(CGPoint(x: fromVC.header.frame.origin.x, y: fromVC.header.frame.origin.y), to: nil)
-        toHeaderSnapshot?.frame = CGRect(x: headerToX, y: toHeaderCoord.y + ((toHeaderSnapshot?.frame.height)! - (toHeaderSnapshot?.frame.height)!/1.6)/2, width: fromVC.header.frame.width/1.6, height: fromVC.header.frame.height/1.6)
-        containerView.addSubview(toHeaderSnapshot!)
+        containerView.addSubview(toVC.view)
         
         var visibleFromSnapshots = [UIView?]()
-        var convertedCellCoords = [CGPoint]()
+        var convertedFromCellCoords = [CGPoint]()
         var cellSize = [CGSize]()
         for cell in fromCollection.visibleCells {
-            let cellSnap = cell.snapshotView(afterScreenUpdates: true)
+            guard let cellSnap = cell.snapshotView(afterScreenUpdates: true) else { break }
             let convertedCoord = fromCollection.convert(CGPoint(x: cell.frame.origin.x, y: cell.frame.origin.y), to: nil)
-            convertedCellCoords.append(convertedCoord)
-            cellSnap?.frame = CGRect(x: (convertedCoord.x), y: (convertedCoord.y), width: cell.frame.width, height: cell.frame.height)
+            cellSnap.frame = CGRect(x: (convertedCoord.x), y: (convertedCoord.y), width: cell.frame.width, height: cell.frame.height)
             cellSize.append(CGSize(width: cell.frame.width, height: cell.frame.height))
+            cellSnap.alpha = 1.0
+            let config = GarlandConfig.shared
+            cellSnap.layer.cornerRadius  = config.cardRadius
+            cellSnap.layer.shadowOffset = config.cardShadowOffset
+            cellSnap.layer.shadowColor = config.cardShadowColor.cgColor
+            cellSnap.layer.shadowOpacity = config.cardShadowOpacity
+            cellSnap.layer.shadowRadius = config.cardShadowRadius
             visibleFromSnapshots.append(cellSnap)
-            containerView.addSubview(cellSnap!)
+            containerView.addSubview(cellSnap)
         }
-        var visibleToSnapshots = [UIView?]()
         
-        for cell in fromCollection.visibleCells {
-            let cellSnap = cell.snapshotView(afterScreenUpdates: true)
-            let convertedCoord = fromCollection.convert(CGPoint(x: cell.frame.origin.x, y: cell.frame.origin.y), to: nil)
-            cellSnap?.frame = CGRect(x: UIScreen.main.bounds.width - self.finalFromXFrame, y: convertedCoord.y, width: 0, height: 0)
-            cellSnap?.alpha = 0.0
+        var visibleToSnapshots = [UIView?]()
+        for cell in toCollection.visibleCells {
+            guard let cellSnap = cell.snapshotView(afterScreenUpdates: true) else { break }
+            let convertedCoord = toCollection.convert(CGPoint(x: cell.frame.origin.x, y: cell.frame.origin.y), to: nil)
+            convertedFromCellCoords.append(convertedCoord)
+            cellSnap.frame.size = CGSize(width: cellSnap.frame.width/3, height: cellSnap.frame.height/2)
+            var finalX = self.finalFromXFrame
+            if finalX == UIScreen.main.bounds.width {
+                finalX += cellSnap.frame.width
+            }
+            cellSnap.frame.origin = CGPoint(x: UIScreen.main.bounds.width - finalX, y: convertedCoord.y + cellSnap.frame.height/2)
+            cellSnap.alpha = 0.2
+            let config = GarlandConfig.shared
+            cellSnap.layer.cornerRadius = config.cardRadius
+            cellSnap.layer.shadowOffset = config.cardShadowOffset
+            cellSnap.layer.shadowColor = config.cardShadowColor.cgColor
+            cellSnap.layer.shadowOpacity = config.cardShadowOpacity
+            cellSnap.layer.shadowRadius = config.cardShadowRadius
             visibleToSnapshots.append(cellSnap)
-            containerView.addSubview(cellSnap!)
+            containerView.addSubview(cellSnap)
         }
-        containerView.addSubview(toVC.view)
+        
+        let fromHeaderSnapshot = fromVC.headerView.snapshotView(afterScreenUpdates: true)
+        let fromHeaderCoord = fromCollection.convert(CGPoint(x: fromVC.headerView.frame.origin.x, y: fromVC.headerView.frame.origin.y), to: nil)
+        fromHeaderSnapshot?.frame = CGRect(x: fromHeaderCoord.x, y: fromHeaderCoord.y, width: fromVC.headerView.frame.width, height: fromVC.headerView.frame.height)
+        containerView.addSubview(fromHeaderSnapshot!)
+        
+        var headerFromX: CGFloat = fromVC.rightFakeHeader.frame.origin.x
+        var headerToX: CGFloat = toVC.leftFakeHeader.frame.origin.x
+        if self.finalFromXFrame == 0 {
+            headerFromX = fromVC.leftFakeHeader.frame.origin.x
+            headerToX = toVC.rightFakeHeader.frame.origin.x
+        }
+        
+        let toHeaderSnapshot = fromVC.headerView.snapshotView(afterScreenUpdates: true)
+        let toHeaderCoord = fromCollection.convert(CGPoint(x: fromVC.headerView.frame.origin.x, y: fromVC.headerView.frame.origin.y), to: nil)
+        toHeaderSnapshot?.frame = CGRect(x: headerToX, y: toHeaderCoord.y + ((toHeaderSnapshot?.frame.height)! - (toHeaderSnapshot?.frame.height)!/1.6)/2, width: toVC.headerView.frame.width/1.6, height: toVC.headerView.frame.height/1.6)
+        containerView.addSubview(toHeaderSnapshot!)
+        
+        fromVC.garlandView.collectionView.alpha = 0.0
+        toVC.garlandView.collectionView.alpha = 0.0
         
         AnimationHelper.perspectiveTransformForContainerView(containerView: containerView)
         let duration = transitionDuration(using: transitionContext)
@@ -80,23 +100,31 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 4/5, animations: {
                 
                 fromHeaderSnapshot?.frame = CGRect(x: headerFromX, y: (fromHeaderSnapshot?.frame.origin.y)! + ((fromHeaderSnapshot?.frame.height)! - (fromHeaderSnapshot?.frame.height)!/1.6)/2, width: (fromHeaderSnapshot?.frame.width)!/1.6, height: (fromHeaderSnapshot?.frame.height)!/1.6)
+                fromHeaderSnapshot?.alpha = 0.2
                 
-                toHeaderSnapshot?.frame = CGRect(x: toHeaderCoord.x, y: toHeaderCoord.y, width: fromVC.header.frame.width, height: fromVC.header.frame.height)
+                toHeaderSnapshot?.frame = CGRect(x: toHeaderCoord.x, y: toHeaderCoord.y, width: toVC.headerView.frame.width, height: toVC.headerView.frame.height)
                 
-                for snapshot in visibleFromSnapshots {
-                    snapshot?.frame = CGRect(x: self.finalFromXFrame, y: (snapshot?.frame.origin.y)!, width: 0, height: 0)
-                    snapshot?.alpha = 0.0
-                }
                 for (index, snapshot) in visibleToSnapshots.enumerated() {
-                    snapshot?.frame.origin.x = convertedCellCoords[index].x
-                    snapshot?.frame.origin.y = convertedCellCoords[index].y
+                    snapshot?.frame.origin.x = convertedFromCellCoords[index].x
+                    snapshot?.frame.origin.y = convertedFromCellCoords[index].y
                     snapshot?.alpha = 1.0
                     snapshot?.frame.size.width = cellSize[index].width
                     snapshot?.frame.size.height = cellSize[index].height
                 }
+                for snapshot in visibleFromSnapshots {
+                    if let nonNilSnap = snapshot {
+                        nonNilSnap.frame.size = CGSize(width: nonNilSnap.frame.width/3, height: nonNilSnap.frame.height/2)
+                        var finalX = self.finalFromXFrame
+                        if finalX == 0 {
+                            finalX -= nonNilSnap.frame.width
+                        }
+                        nonNilSnap.frame.origin = CGPoint(x: finalX, y: nonNilSnap.frame.origin.y + nonNilSnap.frame.height/2)
+                        nonNilSnap.alpha = 0.0
+                    }
+                }
             })
             UIView.addKeyframe(withRelativeStartTime: 4/5, relativeDuration: 1/5, animations: {
-                toVC.view.alpha = 1.0
+                toVC.garlandView.collectionView.alpha = 1.0
             })
         }, completion: { _ in
             for snap in visibleFromSnapshots {
