@@ -35,6 +35,7 @@ class UserCardViewController: GarlandCardController {
         
         let nib = UINib(nibName: "CardCollectionCell", bundle: nil)
         collection.register(nib, forCellWithReuseIdentifier: "CardCollectionCell")
+        
     }
     
 //MARK: Actions
@@ -76,14 +77,18 @@ class UserCardViewController: GarlandCardController {
     }
 }
 
-extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: GarlandConfig.shared.cardsSize.width, height: GarlandConfig.shared.cardsSize.height/1.5)
+    }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -91,7 +96,7 @@ extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDe
         if isDetailed {
             cell.layer.cornerRadius = 5.0
         }
-        
+        cell.contentMode = .scaleToFill
         return cell
     }
     

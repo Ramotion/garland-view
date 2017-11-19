@@ -35,6 +35,7 @@ public class GarlandCollection: UIView {
     }
     
     private func commonInit() {
+        self.frame.size.width = UIScreen.main.bounds.width
         setup()
     }
 }
@@ -49,7 +50,7 @@ fileprivate extension GarlandCollection {
         layout.itemSize = config.cardsSize
         layout.minimumLineSpacing = config.cardsSpacing
         layout.scrollDirection = .vertical
-        let sideInset = (UIScreen.main.bounds.width - config.cardsSize.width)/2
+        let sideInset: CGFloat = (UIScreen.main.bounds.width - config.cardsSize.width)/2
         layout.sectionInset = UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         containerView.insertSubview(collectionView, at: 0)

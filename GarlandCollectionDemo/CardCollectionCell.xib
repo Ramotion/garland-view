@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -44,11 +44,11 @@
                 <constraint firstItem="UcS-E6-phE" firstAttribute="leading" secondItem="EGv-zH-gd1" secondAttribute="leading" constant="15" id="Igu-Hv-hfn"/>
                 <constraint firstAttribute="trailing" secondItem="tor-I6-5DZ" secondAttribute="trailing" constant="15" id="Ka9-rB-4S3"/>
                 <constraint firstAttribute="trailing" secondItem="4TS-Mb-XAH" secondAttribute="trailing" constant="15" id="PXs-Zq-I9y"/>
-                <constraint firstItem="4TS-Mb-XAH" firstAttribute="top" secondItem="UcS-E6-phE" secondAttribute="bottom" constant="5" id="RKj-UT-aB7"/>
                 <constraint firstAttribute="trailing" secondItem="UcS-E6-phE" secondAttribute="trailing" constant="15" id="SCR-gh-2xq"/>
                 <constraint firstItem="tor-I6-5DZ" firstAttribute="leading" secondItem="EGv-zH-gd1" secondAttribute="leading" constant="15" id="UJA-LY-tKj"/>
                 <constraint firstAttribute="bottom" secondItem="tor-I6-5DZ" secondAttribute="bottom" id="aHx-tK-1He"/>
                 <constraint firstItem="UcS-E6-phE" firstAttribute="top" secondItem="EGv-zH-gd1" secondAttribute="top" constant="10" id="vWg-cq-b1Y"/>
+                <constraint firstItem="tor-I6-5DZ" firstAttribute="top" secondItem="4TS-Mb-XAH" secondAttribute="bottom" constant="2" id="xNH-Lo-UR7"/>
             </constraints>
             <size key="customSize" width="300" height="80"/>
             <point key="canvasLocation" x="495" y="-239"/>

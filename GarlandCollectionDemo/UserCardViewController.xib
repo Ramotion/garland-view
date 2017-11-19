@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -87,7 +87,7 @@
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="15"/>
                     <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-52"/>
-                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="16"/>
+                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="12"/>
                     <state key="normal" title="CLOSE" image="Close_button"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-fM-llg" userLabel="Connect Button">
@@ -99,7 +99,7 @@
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                     <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="15"/>
                     <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-52"/>
-                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="16"/>
+                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="12"/>
                     <state key="normal" title="CONNECT" image="Connect_button"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKz-mk-yWq">
@@ -111,7 +111,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="-10" maxY="15"/>
                     <inset key="titleEdgeInsets" minX="-48" minY="0.0" maxX="0.0" maxY="-52"/>
-                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="16"/>
+                    <inset key="imageEdgeInsets" minX="34" minY="6" maxX="34" maxY="12"/>
                     <state key="normal" title="DETAILS" image="Details_button">
                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>

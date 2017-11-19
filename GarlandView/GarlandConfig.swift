@@ -24,7 +24,6 @@ public struct GarlandConfig {
     
     public var cardCellDetailedWidth: CGFloat = 300
     
-    /// Side insets of GlidiingCollection view.
     /// Only left & right side insets will take effect.
     public var sideInsets = UIEdgeInsets(top: 10, left: 4.5, bottom: 10, right: 4)
     

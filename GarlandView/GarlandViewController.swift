@@ -42,7 +42,6 @@ open class GarlandViewController: UIViewController {
         setupHeader()
         setupBackground()
         setupFakeHeaders()
-        
         self.garlandView.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
     }
     
