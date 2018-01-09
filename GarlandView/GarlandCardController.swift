@@ -23,13 +23,12 @@ open class GarlandCardController: UIViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.view.frame = UIScreen.main.bounds
         self.modalPresentationStyle = .custom
         self.transitioningDelegate = self
         self.view.backgroundColor = .gray
         setupCard()
-        //garlandCardCollection.setup()
     }
     
     fileprivate func setupCard() {

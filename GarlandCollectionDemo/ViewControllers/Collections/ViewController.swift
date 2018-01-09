@@ -73,16 +73,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let height = max(minHeight, min(maxHeight, 1.0 - divided))
         let alpha = max(minAlpha, min(maxHeight, 1.0 - offsetCounter))
         let avatarSize = max(minAlpha, min(maxHeight, 1.0 - offsetCounter*4))
-        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height
         avatarView.transform = CGAffineTransform(scaleX: 1.0, y: avatarSize)
         avatarView.alpha = alpha
-        
-        if headerView.frame.height < GarlandConfig.shared.cardsSize.height {
-            self.headerView.layer.cornerRadius = 0
-            self.headerView.round(corners: [.topLeft, .topRight, .bottomLeft, .bottomRight], radius: GarlandConfig.shared.cardRadius)
-        } else {
-            self.headerView.layer.cornerRadius = GarlandConfig.shared.cardRadius
-        }
+        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
