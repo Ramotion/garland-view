@@ -54,7 +54,6 @@ fileprivate extension GarlandCollection {
         layout.sectionInset = UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         containerView.insertSubview(collectionView, at: 0)
-        //collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false

@@ -43,6 +43,30 @@ open class GarlandViewController: UIViewController {
         setupBackground()
         setupFakeHeaders()
         self.garlandView.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
+        self.view.addGestureRecognizer(panGesture)
+    }
+    
+    func handleGesture(gesture: UIPanGestureRecognizer) {
+        let velocity = gesture.velocity(in: self.view)
+        let translation = gesture.translation(in: self.view)
+        if velocity.x > 0, translation.x > 15, !isPresenting {
+            isPresenting = true
+            print("panning right")
+            preparePresentingToRight()
+        } else if translation.x < -15, !isPresenting {
+            print("panning left")
+            isPresenting = true
+            preparePresentingToLeft()
+        }
+    }
+    
+    open func preparePresentingToRight() {
+    
+    }
+    
+    open func preparePresentingToLeft() {
+    
     }
     
 }
@@ -81,7 +105,6 @@ public extension GarlandViewController {
         self.headerView.frame.size = GarlandConfig.shared.cardsSize
         self.headerView.frame.origin.x = UIScreen.main.bounds.width/2 - self.headerView.frame.width/2
         self.headerView.frame.origin.y = garlandView.collectionView.contentOffset.y
-        //self.headerView.backgroundColor = UIColor(red: 176.0/255.0, green: 209.0/255.0, blue: 117.0/255.0, alpha: 1.0)
         self.headerView.layer.cornerRadius = GarlandConfig.shared.cardRadius
         self.headerView.tag = 99
         

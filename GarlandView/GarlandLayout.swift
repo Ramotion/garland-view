@@ -9,17 +9,9 @@
 import Foundation
 import UIKit
 
-/// :nodoc:
-public protocol GarlandLayoutDelegate {
-    func collectionViewDidScroll()
-}
-
 class GarlandLayout: UICollectionViewFlowLayout {
-    
-    var delegate: GarlandLayoutDelegate?
         
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        delegate?.collectionViewDidScroll()
         return true
     }
     

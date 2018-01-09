@@ -27,7 +27,6 @@
 		4EC9B0691EF1F96000A0A0AF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B0681EF1F95F00A0A0AF /* SecondViewController.swift */; };
 		4EC9B06B1EF2F4A500A0A0AF /* GarlandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */; };
 		4EC9B06D1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */; };
-		4EC9B06F1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B06E1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift */; };
 		4EC9B0711EF4171A00A0A0AF /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC9B0701EF4171A00A0A0AF /* SecondViewController.xib */; };
 		4EC9B0731EF6E45A00A0A0AF /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EC9B0721EF6E45A00A0A0AF /* ViewController.xib */; };
 		4EDC226D1F0087F1007C92E8 /* GarlandCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC226C1F0087F1007C92E8 /* GarlandCardController.swift */; };
@@ -85,7 +84,6 @@
 		4EC9B0681EF1F95F00A0A0AF /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandViewController.swift; sourceTree = "<group>"; };
 		4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandPresentAnimationController.swift; sourceTree = "<group>"; };
-		4EC9B06E1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandCollectionDelegate.swift; sourceTree = "<group>"; };
 		4EC9B0701EF4171A00A0A0AF /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		4EC9B0721EF6E45A00A0A0AF /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		4EDC226C1F0087F1007C92E8 /* GarlandCardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandCardController.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 				4E0EB0641EED8E2B00DD634C /* Resources */,
 				4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */,
 				4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */,
-				4EC9B06E1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift */,
 				4EDC226C1F0087F1007C92E8 /* GarlandCardController.swift */,
 				4EDC226E1F00880A007C92E8 /* GarlandCardPresentAnimationController.swift */,
 				4EDC22741F028782007C92E8 /* GarlandCardDismissAnimationController.swift */,
@@ -355,7 +352,6 @@
 				4E8475121F0405F80016CDBA /* GarlandCollectionCell.swift in Sources */,
 				4E8475191F05880C0016CDBA /* CardCollectionCell.swift in Sources */,
 				4EC9B06B1EF2F4A500A0A0AF /* GarlandViewController.swift in Sources */,
-				4EC9B06F1EF3F11700A0A0AF /* GarlandCollectionDelegate.swift in Sources */,
 				4EDC226F1F00880A007C92E8 /* GarlandCardPresentAnimationController.swift in Sources */,
 				4E84751B1F0588950016CDBA /* CardCollectionDetailedCell.swift in Sources */,
 				4E0EB06A1EED8F9F00DD634C /* GarlandConfig.swift in Sources */,

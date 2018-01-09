@@ -30,18 +30,6 @@ public struct GarlandConfig {
     /// Duration of animation between GlidingCollection sections.
     public var animationDuration: Double = 0.4
     
-    /// Spacing between vertical stack of items.
-    public var buttonsSpacing: CGFloat = 15
-    
-    /// Font of each element in vertical stack.
-    public var buttonsFont = UIFont.systemFont(ofSize: 16)
-    
-    /// Scale factor of inactive sections buttons.
-    public var buttonsScaleFactor: CGFloat = 0.65
-    
-    /// Active section button color.
-    public var activeButtonColor: UIColor = .darkGray
-    
     /// Inactive sections buttons color.
     public var inactiveButtonsColor: UIColor = .black
     
@@ -49,10 +37,7 @@ public struct GarlandConfig {
     public var cardsSpacing: CGFloat = 30
     
     /// Size of collectionView's cells.
-    public var cardsSize = CGSize(width: round(UIScreen.main.bounds.width * 0.8), height: round(UIScreen.main.bounds.height * 0.2))
-    //public var cardsSize = CGSize(width: 220, height: 80)
-    /// Apply parallax effect to horizontal cards.
-    public var isParallaxEnabled = true
+    public var cardsSize = CGSize(width: round(UIScreen.main.bounds.width * 0.8), height: 120.0)
     
     /// Shadow color.
     public var cardShadowColor = UIColor.black

@@ -6,11 +6,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="GarlandCollectionDemo" customModuleProvider="target">
             <connections>
+                <outlet property="avatarView" destination="8ZL-Q7-cDI" id="UWy-o5-1zY"/>
                 <outlet property="garlandView" destination="Qso-aR-1KY" id="HEE-Tn-WtW"/>
                 <outlet property="headerView" destination="yzs-bL-Lcf" id="e4i-zM-Mik"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8fq-sV-cgH"/>
@@ -29,7 +31,7 @@
                         <navigationItem title="Title" id="aWP-VP-qUS"/>
                     </items>
                 </navigationBar>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qso-aR-1KY" customClass="GarlandCollection" customModule="GarlandView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qso-aR-1KY" customClass="GarlandCollection" customModule="GarlandView">
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -49,25 +51,6 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your go-to song when you are singing in the shower?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWG-HE-7zZ">
                     <rect key="frame" x="20" y="15" width="260" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-Vs-JRh">
-                    <rect key="frame" x="20" y="48" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="8Kg-gg-Vp2"/>
-                        <constraint firstAttribute="height" constant="30" id="Gxe-tn-AuM"/>
-                    </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloria Ross asked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9M-Mi-jfH">
-                    <rect key="frame" x="58" y="50" width="86" height="12"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 years • San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-gM-u3Z">
-                    <rect key="frame" x="58" y="64.5" width="138" height="12"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -103,27 +86,56 @@
                         <constraint firstAttribute="trailing" secondItem="K9i-SU-Jbo" secondAttribute="trailing" constant="20" id="HxY-HH-SNq"/>
                         <constraint firstItem="qVa-Lz-ci9" firstAttribute="centerY" secondItem="LWv-h1-uiH" secondAttribute="centerY" id="Msl-fZ-39i"/>
                         <constraint firstItem="K9i-SU-Jbo" firstAttribute="centerY" secondItem="LWv-h1-uiH" secondAttribute="centerY" id="Xsa-g9-Gou"/>
-                        <constraint firstAttribute="height" constant="35" id="kC9-eh-Izq"/>
+                        <constraint firstAttribute="height" constant="35" id="bxn-ec-XPa"/>
                         <constraint firstItem="K9i-SU-Jbo" firstAttribute="leading" secondItem="Yze-rV-Pq9" secondAttribute="trailing" constant="20" id="poX-dP-9Uh"/>
                         <constraint firstItem="qVa-Lz-ci9" firstAttribute="leading" secondItem="LWv-h1-uiH" secondAttribute="leading" constant="20" id="tTX-lf-KfC"/>
                         <constraint firstItem="Yze-rV-Pq9" firstAttribute="centerY" secondItem="LWv-h1-uiH" secondAttribute="centerY" id="wr8-M3-Jg5"/>
                     </constraints>
                 </view>
+                <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZL-Q7-cDI">
+                    <rect key="frame" x="0.0" y="43" width="300" height="40"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 years • San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-gM-u3Z">
+                            <rect key="frame" x="58" y="21" width="138" height="12"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloria Ross asked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9M-Mi-jfH">
+                            <rect key="frame" x="58" y="7" width="86" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-Vs-JRh">
+                            <rect key="frame" x="20" y="5" width="30" height="30"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Ywl-Vs-JRh" firstAttribute="centerY" secondItem="8ZL-Q7-cDI" secondAttribute="centerY" id="0Wu-FQ-kue"/>
+                        <constraint firstItem="Gmb-gM-u3Z" firstAttribute="leading" secondItem="Ywl-Vs-JRh" secondAttribute="trailing" constant="8" id="1RH-hO-cS0"/>
+                        <constraint firstItem="z9M-Mi-jfH" firstAttribute="leading" secondItem="Ywl-Vs-JRh" secondAttribute="trailing" constant="8" id="D9X-g2-jpf"/>
+                        <constraint firstItem="Gmb-gM-u3Z" firstAttribute="bottom" secondItem="Ywl-Vs-JRh" secondAttribute="bottom" constant="-2" id="LW8-we-gcR"/>
+                        <constraint firstItem="Ywl-Vs-JRh" firstAttribute="width" secondItem="8ZL-Q7-cDI" secondAttribute="width" multiplier="0.1" id="V4K-RZ-ANh"/>
+                        <constraint firstItem="Ywl-Vs-JRh" firstAttribute="leading" secondItem="8ZL-Q7-cDI" secondAttribute="leading" constant="20" id="oqZ-kO-yfn"/>
+                        <constraint firstItem="Ywl-Vs-JRh" firstAttribute="height" secondItem="8ZL-Q7-cDI" secondAttribute="height" multiplier="0.75" id="unh-NM-98m"/>
+                        <constraint firstItem="z9M-Mi-jfH" firstAttribute="top" secondItem="Ywl-Vs-JRh" secondAttribute="top" constant="2" id="vtP-LF-glo"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.69019607839999997" green="0.81960784310000001" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Ywl-Vs-JRh" firstAttribute="top" secondItem="qWG-HE-7zZ" secondAttribute="bottom" constant="4" id="1er-xm-jVw"/>
+                <constraint firstItem="8ZL-Q7-cDI" firstAttribute="top" secondItem="yzs-bL-Lcf" secondAttribute="top" constant="43" id="0Dn-DN-icM"/>
                 <constraint firstAttribute="trailing" secondItem="qWG-HE-7zZ" secondAttribute="trailing" constant="20" id="7BQ-CC-BXT"/>
+                <constraint firstItem="8ZL-Q7-cDI" firstAttribute="trailing" secondItem="LWv-h1-uiH" secondAttribute="trailing" id="7uW-PJ-yAX"/>
                 <constraint firstItem="LWv-h1-uiH" firstAttribute="leading" secondItem="yzs-bL-Lcf" secondAttribute="leading" id="8Mi-c7-e50"/>
-                <constraint firstItem="z9M-Mi-jfH" firstAttribute="top" secondItem="Ywl-Vs-JRh" secondAttribute="top" constant="2" id="8w7-0P-po8"/>
                 <constraint firstItem="qWG-HE-7zZ" firstAttribute="leading" secondItem="yzs-bL-Lcf" secondAttribute="leading" constant="20" id="Hiv-uC-f77"/>
-                <constraint firstItem="z9M-Mi-jfH" firstAttribute="leading" secondItem="Ywl-Vs-JRh" secondAttribute="trailing" constant="8" id="KxD-AR-C4U"/>
                 <constraint firstAttribute="trailing" secondItem="LWv-h1-uiH" secondAttribute="trailing" id="W6y-gl-cTA"/>
                 <constraint firstAttribute="bottom" secondItem="LWv-h1-uiH" secondAttribute="bottom" id="eP7-FY-ylo"/>
-                <constraint firstItem="Gmb-gM-u3Z" firstAttribute="leading" secondItem="Ywl-Vs-JRh" secondAttribute="trailing" constant="8" id="f6H-Iq-Dqu"/>
                 <constraint firstItem="qWG-HE-7zZ" firstAttribute="top" secondItem="yzs-bL-Lcf" secondAttribute="top" constant="15" id="fdU-gU-797"/>
-                <constraint firstItem="Ywl-Vs-JRh" firstAttribute="leading" secondItem="yzs-bL-Lcf" secondAttribute="leading" constant="20" id="i2g-UL-CMF"/>
-                <constraint firstItem="Gmb-gM-u3Z" firstAttribute="bottom" secondItem="Ywl-Vs-JRh" secondAttribute="bottom" constant="-2" id="lTD-xa-2vR"/>
+                <constraint firstItem="LWv-h1-uiH" firstAttribute="top" secondItem="8ZL-Q7-cDI" secondAttribute="bottom" constant="2" id="fwk-pg-hl7"/>
+                <constraint firstItem="8ZL-Q7-cDI" firstAttribute="leading" secondItem="LWv-h1-uiH" secondAttribute="leading" id="xuw-yi-Nrn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="33" y="564"/>
