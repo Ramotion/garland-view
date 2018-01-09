@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -25,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Allocate memory for an instance of the 'MainViewController' class
         let mainViewController = ViewController.init(nibName: "ViewController", bundle: nil)
         
-        
         // Set the root view controller of the app's window
         window!.rootViewController = mainViewController
         
@@ -34,4 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

@@ -19,16 +19,18 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? GarlandViewController,
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandViewController,
-            let fromCollection = fromVC.garlandView.collectionView,
-            let toCollection = toVC.garlandView.collectionView else {
+              let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandViewController else {
+                
+                transitionContext.completeTransition(false)
                 return
         }
+    
+        let fromCollection = fromVC.garlandView.collectionView
+        let toCollection = toVC.garlandView.collectionView
         
         let containerView = transitionContext.containerView
-        //toCollection.reloadData()
-        containerView.frame = fromVC.view.frame
         
+        containerView.frame = fromVC.view.frame
         containerView.addSubview(toVC.view)
         
         var visibleFromSnapshots = [UIView?]()

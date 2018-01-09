@@ -16,20 +16,11 @@ class ViewController: GarlandViewController {
     var collectionView: UICollectionView!
     
     let scrollViewContentOffsetMargin: CGFloat = -150.0
-    
     var headerIsSmall: Bool = false
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)   {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         
     }
     
@@ -44,11 +35,6 @@ class ViewController: GarlandViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.view.addSubview(collectionView)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func preparePresentingToRight() {

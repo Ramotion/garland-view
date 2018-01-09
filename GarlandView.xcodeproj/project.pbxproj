@@ -133,12 +133,12 @@
 		39A59C822004C468007F8ECF /* Collections */ = {
 			isa = PBXGroup;
 			children = (
-				39A59C832004C468007F8ECF /* CollectionCell.swift */,
 				39A59C842004C468007F8ECF /* ViewController.swift */,
 				39A59C852004C468007F8ECF /* ViewController.xib */,
-				39A59C862004C468007F8ECF /* CollectionCell.xib */,
-				39A59C872004C468007F8ECF /* SecondViewController.xib */,
 				39A59C882004C468007F8ECF /* SecondViewController.swift */,
+				39A59C872004C468007F8ECF /* SecondViewController.xib */,
+				39A59C832004C468007F8ECF /* CollectionCell.swift */,
+				39A59C862004C468007F8ECF /* CollectionCell.xib */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
