@@ -64,7 +64,6 @@ extension UIView {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor;
     }
-
 }
 
 private extension UIView {
@@ -86,5 +85,4 @@ private extension UIView {
         borderLayer.frame = bounds
         layer.addSublayer(borderLayer)
     }
-
 }

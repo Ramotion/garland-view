@@ -52,10 +52,8 @@ open class GarlandViewController: UIViewController {
         let translation = gesture.translation(in: self.view)
         if velocity.x > 0, translation.x > 15, !isPresenting {
             isPresenting = true
-            print("panning right")
             preparePresentingToRight()
         } else if translation.x < -15, !isPresenting {
-            print("panning left")
             isPresenting = true
             preparePresentingToLeft()
         }

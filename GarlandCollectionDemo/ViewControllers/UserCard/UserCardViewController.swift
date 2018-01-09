@@ -18,27 +18,16 @@ class UserCardViewController: GarlandCardController {
     
     fileprivate var isDetailed = false
     
-    //var collectionView: UICollectionView!
-    
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)   {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchDown)
-        //detailsButton.addTarget(self, action: #selector(detailsButtonAction), for: .touchDown)
+        detailsButton.addTarget(self, action: #selector(detailsButtonAction), for: .touchDown)
         
         let nib = UINib(nibName: "CardCollectionCell", bundle: nil)
         collection.register(nib, forCellWithReuseIdentifier: "CardCollectionCell")
-        
     }
     
-//MARK: Actions
+    //MARK: Actions
     @objc fileprivate func detailsButtonAction() {
         let cardConstraits = card.findSuperviewConstraints(attribute: .leading)
         
@@ -61,7 +50,7 @@ class UserCardViewController: GarlandCardController {
             let sideInset = (self.card.frame.width - cellSize.width)/2
             
             let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .vertical //.horizontal
+            layout.scrollDirection = .vertical
             layout.itemSize = cellSize
             layout.sectionInset = UIEdgeInsets(top: 5, left: sideInset, bottom: 5, right: sideInset)
             layout.minimumLineSpacing = 5.0
@@ -81,10 +70,6 @@ extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDe
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: GarlandConfig.shared.cardsSize.width, height: GarlandConfig.shared.cardsSize.height/1.5)
-    }
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

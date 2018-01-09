@@ -110,7 +110,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print(scrollView.contentOffset.y, headerIsSmall)
         if scrollView.contentOffset.y > scrollViewContentOffsetMargin, !headerIsSmall {
             headerIsSmall = true
             scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0.0), animated: true)
