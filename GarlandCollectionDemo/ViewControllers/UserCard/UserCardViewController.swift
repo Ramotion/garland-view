@@ -14,7 +14,6 @@ class UserCardViewController: GarlandCardController {
     
     @IBOutlet var closeButton: UIButton!
     @IBOutlet var detailsButton: UIButton!
-    @IBOutlet var collection: UICollectionView!
     
     fileprivate var isDetailed = false
     
@@ -24,7 +23,7 @@ class UserCardViewController: GarlandCardController {
         detailsButton.addTarget(self, action: #selector(detailsButtonAction), for: .touchDown)
         
         let nib = UINib(nibName: "CardCollectionCell", bundle: nil)
-        collection.register(nib, forCellWithReuseIdentifier: "CardCollectionCell")
+        garlandCardCollection.register(nib, forCellWithReuseIdentifier: "CardCollectionCell")
     }
     
     //MARK: Actions
@@ -34,7 +33,7 @@ class UserCardViewController: GarlandCardController {
         let centerYCardConstrait = card.findSuperviewConstraints(attribute: .centerY)
         
         isDetailed = true
-        for cell in self.collection.visibleCells {
+        for cell in garlandCardCollection.visibleCells {
             cell.layer.cornerRadius = 5.0
         }
         
@@ -55,9 +54,9 @@ class UserCardViewController: GarlandCardController {
             layout.sectionInset = UIEdgeInsets(top: 5, left: sideInset, bottom: 5, right: sideInset)
             layout.minimumLineSpacing = 5.0
             layout.minimumInteritemSpacing = 5.0
-            self.collection.setCollectionViewLayout(layout, animated: true)
             
-            self.collection.reloadData()
+            self.garlandCardCollection.setCollectionViewLayout(layout, animated: true)
+            self.garlandCardCollection.reloadData()
         })
     }
     
@@ -77,7 +76,11 @@ extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionCell", for: indexPath) as? CardCollectionCell else { return UICollectionViewCell() }
+        let collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionCell", for: indexPath)
+        guard let cell = collectionCell as? CardCollectionCell else {
+            return UICollectionViewCell()
+        }
+        
         if isDetailed {
             cell.layer.cornerRadius = 5.0
         }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,6 @@
                 <outlet property="background" destination="MXB-mq-11R" id="qDS-lY-lf9"/>
                 <outlet property="card" destination="VEM-NS-j3Q" id="7C5-tT-Nm4"/>
                 <outlet property="closeButton" destination="HVf-VM-trq" id="LJP-bi-PDr"/>
-                <outlet property="collection" destination="71i-ad-t8W" id="ETy-Cd-h5p"/>
                 <outlet property="detailsButton" destination="PKz-mk-yWq" id="diU-QS-AeO"/>
                 <outlet property="garlandCardCollection" destination="71i-ad-t8W" id="rz6-Jd-J9x"/>
                 <outlet property="headerImageView" destination="h1p-tK-87y" id="crV-tW-a6C"/>

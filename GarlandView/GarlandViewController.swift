@@ -50,13 +50,9 @@ open class GarlandViewController: UIViewController {
         }
     }
     
-    open func preparePresentingToRight() {
+    open func preparePresentingToRight() { }
     
-    }
-    
-    open func preparePresentingToLeft() {
-    
-    }
+    open func preparePresentingToLeft() { }
 }
 
 
@@ -77,14 +73,16 @@ public extension GarlandViewController {
         rightFakeHeader.frame.size = CGSize(width: config.cardsSize.width/1.6, height: config.cardsSize.height/1.6)
         rightFakeHeader.frame.origin.x = UIScreen.main.bounds.width - rightFakeHeader.frame.width/14
         rightFakeHeader.frame.origin.y = garlandView.frame.origin.y + (headerView.frame.height - rightFakeHeader.frame.height)/2
-        rightFakeHeader.backgroundColor = UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0)
+        
+        let color = UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0)
+        rightFakeHeader.backgroundColor = color
         rightFakeHeader.layer.cornerRadius = config.cardRadius
         view.addSubview(rightFakeHeader)
         
         leftFakeHeader.frame.size = CGSize(width: config.cardsSize.width/1.6, height: config.cardsSize.height/1.6)
-        leftFakeHeader.frame.origin.x = 0 - leftFakeHeader.frame.width + leftFakeHeader.frame.width/14
-        leftFakeHeader.frame.origin.y = garlandView.frame.origin.y + (headerView.frame.height - leftFakeHeader.frame.height)/2
-        leftFakeHeader.backgroundColor = UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0)
+        leftFakeHeader.frame.origin.x = -leftFakeHeader.frame.width + leftFakeHeader.frame.width/14
+        leftFakeHeader.frame.origin.y = garlandView.frame.origin.y + (headerView.frame.height - leftFakeHeader.frame.height) / 2
+        leftFakeHeader.backgroundColor = color
         leftFakeHeader.layer.cornerRadius = config.cardRadius
         view.addSubview(leftFakeHeader)
     }
@@ -93,8 +91,20 @@ public extension GarlandViewController {
         headerView.frame.size = GarlandConfig.shared.cardsSize
         headerView.frame.origin.x = UIScreen.main.bounds.width/2 - headerView.frame.width/2
         headerView.frame.origin.y = garlandView.collectionView.contentOffset.y
-        headerView.layer.cornerRadius = GarlandConfig.shared.cardRadius
         headerView.tag = 99
+        
+        if let background = headerView.subviews.first {
+            background.layer.cornerRadius = GarlandConfig.shared.cardRadius
+            background.layer.masksToBounds = true
+        }
+        
+        let config = GarlandConfig.shared
+        headerView.layer.masksToBounds = false
+        headerView.layer.cornerRadius = config.cardRadius
+        headerView.layer.shadowOffset = config.cardShadowOffset
+        headerView.layer.shadowColor = config.cardShadowColor.cgColor
+        headerView.layer.shadowOpacity = config.cardShadowOpacity
+        headerView.layer.shadowRadius = config.cardShadowRadius
         
         garlandView.collectionView.insertSubview(headerView, at: 99)
     }
