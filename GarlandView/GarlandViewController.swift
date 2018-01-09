@@ -37,7 +37,7 @@ open class GarlandViewController: UIViewController {
         self.view.addGestureRecognizer(panGesture)
     }
     
-    func handleGesture(gesture: UIPanGestureRecognizer) {
+    @objc func handleGesture(gesture: UIPanGestureRecognizer) {
         let velocity = gesture.velocity(in: self.view)
         let translation = gesture.translation(in: self.view)
         if velocity.x > 0, translation.x > 15, !isPresenting {
