@@ -21,39 +21,33 @@ class ViewController: GarlandViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
         collectionView = garlandView.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
-        
         collectionView.backgroundColor = .clear
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        view.addSubview(collectionView)
     }
 
     override func preparePresentingToRight() {
-        let secondViewController = SecondViewController.init(nibName: "SecondViewController", bundle: nil)
-        secondViewController.animationXDest = UIScreen.main.bounds.width
-        present(secondViewController, animated: true, completion: nil)
+        showNext(disposition: UIScreen.main.bounds.width)
     }
     
     override func preparePresentingToLeft() {
-        let secondViewController = SecondViewController.init(nibName: "SecondViewController", bundle: nil)
-        present(secondViewController, animated: true, completion: nil)
+        showNext(disposition: 0)
+    }
+    
+    private func showNext(disposition: CGFloat) {
+        let nextVC = ViewController.init(nibName: "ViewController", bundle: nil)
+        nextVC.animationXDest = disposition
+        nextVC.transitioningDelegate = nextVC
+        nextVC.modalPresentationStyle = .custom
+        present(nextVC, animated: true, completion: nil)
     }
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
@@ -61,7 +55,6 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CollectionCell else { return UICollectionViewCell() }
-        
         
         return cell
     }
@@ -94,7 +87,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             self.headerView.layer.cornerRadius = GarlandConfig.shared.cardRadius
         }
     }
-    
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView.contentOffset.y > scrollViewContentOffsetMargin, !headerIsSmall {
             headerIsSmall = true

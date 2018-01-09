@@ -12,25 +12,8 @@ import GarlandView
 
 class CollectionCell: GarlandCollectionCell {
     
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }
-    
     open override func awakeFromNib() {
         super.awakeFromNib()
-        
-        commonInit()
-    }
-    
-    fileprivate func commonInit() {
-        configurateCell()
-    }
-    
-    fileprivate func configurateCell() {
-        self.layer.masksToBounds = true
-        
         
         contentView.layer.masksToBounds = false
         layer.masksToBounds             = false
