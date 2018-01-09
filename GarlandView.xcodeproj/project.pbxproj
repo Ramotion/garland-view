@@ -168,13 +168,13 @@
 				4E0EB0651EED8E5100DD634C /* GarlandCollection.swift */,
 				4E0EB0691EED8F9F00DD634C /* GarlandConfig.swift */,
 				4E0EB0661EED8E5100DD634C /* GarlandLayout.swift */,
-				4E0EB0641EED8E2B00DD634C /* Resources */,
 				4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */,
 				4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */,
 				4EDC226C1F0087F1007C92E8 /* GarlandCardController.swift */,
 				4EDC226E1F00880A007C92E8 /* GarlandCardPresentAnimationController.swift */,
 				4EDC22741F028782007C92E8 /* GarlandCardDismissAnimationController.swift */,
 				4E8475111F0405F80016CDBA /* GarlandCollectionCell.swift */,
+				4E0EB0641EED8E2B00DD634C /* Resources */,
 			);
 			path = GarlandView;
 			sourceTree = "<group>";

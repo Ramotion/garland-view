@@ -11,7 +11,6 @@ import UIKit
 
 open class GarlandViewController: UIViewController {
     
-    
     @IBOutlet open var garlandView: GarlandCollection!
     @IBOutlet open var headerView: UIView!
     open var backgroundHeader: UIView = UIView()
@@ -19,21 +18,12 @@ open class GarlandViewController: UIViewController {
     var rightFakeHeader: UIView = UIView()
     var leftFakeHeader: UIView = UIView()
     
-    
-    fileprivate let garlandPresentAnimationController = GarlandPresentAnimationController()
-    
     open var animationXDest: CGFloat = 0.0
     open var selectedCardIndex: IndexPath = IndexPath()
     open var isPresenting = false
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)   {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
+    fileprivate let garlandPresentAnimationController = GarlandPresentAnimationController()
+        
     override open func viewDidLoad() {
         super.viewDidLoad()
         self.modalPresentationStyle = .custom
@@ -66,7 +56,6 @@ open class GarlandViewController: UIViewController {
     open func preparePresentingToLeft() {
     
     }
-    
 }
 
 

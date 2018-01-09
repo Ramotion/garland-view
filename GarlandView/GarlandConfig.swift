@@ -50,5 +50,4 @@ public struct GarlandConfig {
     
     /// Shadow opacity.
     public var cardShadowOpacity: Float = 0.3
-    
 }

@@ -21,21 +21,14 @@ public class GarlandCollection: UIView {
         return GarlandConfig.shared
     }
     
-    // MARK: Constructor
-    /// :nodoc:
+    // MARK: Init
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        commonInit()
+        setup()
     }
     
-    /// :nodoc:
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        commonInit()
-    }
-    
-    private func commonInit() {
-        self.frame.size.width = UIScreen.main.bounds.width
         setup()
     }
 }
@@ -43,6 +36,7 @@ public class GarlandCollection: UIView {
 fileprivate extension GarlandCollection {
     
     func setup() {
+        frame.size.width = UIScreen.main.bounds.width
         setupCollectionView()
     }
     
@@ -62,4 +56,3 @@ fileprivate extension GarlandCollection {
         collectionView.collectionViewLayout.invalidateLayout()
     }
 }
-

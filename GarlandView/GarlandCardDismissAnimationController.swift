@@ -35,17 +35,14 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
         fromVC.card.alpha = 0.0
         
         
-        
-        
         let avatarSnapshot = fromVC.avatar.snapshotView(afterScreenUpdates: true)
         let convertedAvatarCoord = fromVC.view.convert(fromVC.avatar.frame.origin, to: nil)
         avatarSnapshot?.frame.origin = convertedAvatarCoord
         containerView.addSubview(avatarSnapshot!)
-        
         containerView.backgroundColor = .clear
+    
         
         let duration = transitionDuration(using: transitionContext)
-        
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
@@ -54,7 +51,6 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
                 avatarSnapshot?.frame.origin = convertedCellAvatarCoord
                 fromVC.view.alpha = 0.0
             })
-            
         }, completion: { _ in
             fromVC.view.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)

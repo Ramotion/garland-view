@@ -32,19 +32,12 @@ open class GarlandCardController: UIViewController {
         //garlandCardCollection.setup()
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     fileprivate func setupCard() {
         card.layer.cornerRadius = GarlandConfig.shared.cardRadius
         avatar.layer.cornerRadius = avatar.frame.width/2
         avatar.layer.borderWidth = 3.0
         avatar.layer.borderColor = #colorLiteral(red: 0.6901960784, green: 0.8196078431, blue: 0.4588235294, alpha: 1)
-        //garlandCardCollection.backgroundColor = .white
     }
-    
 }
 
 //MARK: Transition delegate methods

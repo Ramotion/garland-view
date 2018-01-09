@@ -24,7 +24,6 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
         }
         
         let containerView = transitionContext.containerView
-        
         containerView.addSubview(toVC.view)
         toVC.view.alpha = 0.0
         
@@ -43,16 +42,14 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
         containerView.addSubview(snapshot!)
         
 
-        
         let avatarSnapshot = fromCell.avatar.snapshotView(afterScreenUpdates: true)
         let convertedAvatarCoord = fromCell.convert(fromCell.avatar.frame.origin, to: nil)
         avatarSnapshot?.frame.origin = convertedAvatarCoord
         containerView.addSubview(avatarSnapshot!)
         
-        let duration = transitionDuration(using: transitionContext)
         
+        let duration = transitionDuration(using: transitionContext)
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
-            
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 3/5, animations: {
                 snapshot?.frame = cardConvertedFrame
                 avatarSnapshot?.frame = toVC.avatar.frame
@@ -63,7 +60,6 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
         }, completion: { _ in
             avatarSnapshot?.removeFromSuperview()
             snapshot?.removeFromSuperview()
-            //transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             UIView.animateKeyframes(withDuration: 0.1, delay: 0, options: .calculationModeLinear, animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 5/5, animations: {
                     for cell in toVC.garlandCardCollection.visibleCells {

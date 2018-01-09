@@ -22,7 +22,6 @@ class GarlandLayout: UICollectionViewFlowLayout {
     }
     
     private func transformLayoutAttributes(_ attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        
         guard let collectionView = self.collectionView else { return attributes }
         
         if let header = collectionView.viewWithTag(99) {
