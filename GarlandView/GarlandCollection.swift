@@ -13,8 +13,6 @@ public class GarlandCollection: UIView {
     
     public let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: GarlandLayout())
     
-    fileprivate let containerView = UIScrollView()
-    
     fileprivate var layout: GarlandLayout {
         return collectionView.collectionViewLayout as! GarlandLayout
     }
@@ -32,6 +30,11 @@ public class GarlandCollection: UIView {
         super.init(coder: aDecoder)
         setup()
     }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        collectionView.frame = bounds
+    }
 }
 
 fileprivate extension GarlandCollection {
@@ -48,13 +51,12 @@ fileprivate extension GarlandCollection {
         
         let sideInset: CGFloat = (UIScreen.main.bounds.width - config.cardsSize.width)/2
         layout.sectionInset = UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
-        collectionView.frame = self.frame
-        containerView.insertSubview(collectionView, at: 0)
         collectionView.translatesAutoresizingMaskIntoConstraints = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.delaysContentTouches = true
         collectionView.clipsToBounds = true
         collectionView.collectionViewLayout.invalidateLayout()
+        addSubview(collectionView)
     }
 }

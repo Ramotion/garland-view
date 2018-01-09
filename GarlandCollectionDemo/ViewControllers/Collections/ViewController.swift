@@ -13,8 +13,6 @@ class ViewController: GarlandViewController {
 
     @IBOutlet var avatarView: UIView!
     
-    var collectionView: UICollectionView!
-    
     let scrollViewContentOffsetMargin: CGFloat = -150.0
     var headerIsSmall: Bool = false
     
@@ -22,12 +20,11 @@ class ViewController: GarlandViewController {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
-        collectionView = garlandView.collectionView
+        let collectionView = garlandView.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        view.addSubview(collectionView)
     }
 
     override func preparePresentingToRight() {
@@ -66,7 +63,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let startOffset = (collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
+        let startOffset = (garlandView.collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
         let maxHeight: CGFloat = 1.0
         let minHeight: CGFloat = 0.7
         let minAlpha: CGFloat = 0.0

@@ -32,6 +32,8 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         
         containerView.frame = fromVC.view.frame
         containerView.addSubview(toVC.view)
+        toVC.view.frame = UIScreen.main.bounds
+        toVC.view.layoutSubviews()
         
         var visibleFromSnapshots = [UIView?]()
         var convertedFromCellCoords = [CGPoint]()

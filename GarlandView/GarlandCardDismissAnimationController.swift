@@ -43,8 +43,7 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
     
         
         let duration = transitionDuration(using: transitionContext)
-        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
-            
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {            
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                 snapshot?.frame = CGRect(x: convertedCellCoord.x, y: convertedCellCoord.y, width: cell.frame.width, height: cell.frame.height)
                 avatarSnapshot?.frame.size = cell.avatar.frame.size
