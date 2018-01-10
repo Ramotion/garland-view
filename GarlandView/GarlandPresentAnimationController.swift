@@ -14,7 +14,7 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
     var finalFromXFrame: CGFloat = 0.0
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 8 //GarlandConfig.shared.animationDuration
+        return GarlandConfig.shared.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
