@@ -12,12 +12,13 @@ import UIKit
 class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 8 //GarlandConfig.shared.animationDuration
+        return GarlandConfig.shared.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? GarlandCardController,
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandViewController else {
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandViewController,
+            let snapshotSubviews = fromVC.card.snapshotView(afterScreenUpdates: true) else {
                 
                 transitionContext.completeTransition(false)
                 return
@@ -28,16 +29,14 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
         let cell = toVC.garlandView.collectionView.cellForItem(at: toVC.selectedCardIndex) as! GarlandCollectionCell
         let convertedCellCoord = toVC.garlandView.collectionView.convert(cell.frame.origin, to: nil)
         let convertedCellAvatarCoord = cell.convert(cell.avatar.frame.origin, to: nil)
-        for subview in fromVC.card.subviews {
-            subview.alpha = 0.0
-        }
+
         
-        guard let snapshot = fromVC.card.snapshotView(afterScreenUpdates: true) else {
-            transitionContext.completeTransition(false)
-            return
-        }
-        
-        snapshot.frame = fromVC.card.frame
+        let snapshot = UIView(frame: fromVC.card.frame)
+        snapshot.layer.cornerRadius = fromVC.card.layer.cornerRadius
+        snapshot.layer.masksToBounds = true
+        snapshot.backgroundColor = fromVC.card.backgroundColor
+        snapshotSubviews.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        snapshot.addSubview(snapshotSubviews)
         containerView.addSubview(snapshot)
         fromVC.card.alpha = 0
         fromVC.avatar.alpha = 0
@@ -73,7 +72,12 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
         avatarSnapshot.layer.add(animations, forKey: "transitionAnimations")
 
     
-        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {            
+        UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
+
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.4, animations: {
+                snapshotSubviews.alpha = 0
+            })
+            
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                 snapshot.frame = CGRect(x: convertedCellCoord.x, y: convertedCellCoord.y, width: cell.frame.width, height: cell.frame.height)
                 avatarSnapshot.frame.size = cell.avatar.frame.size
@@ -81,8 +85,16 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
                 fromVC.view.alpha = 0.0
             })
         }, completion: { _ in
+            snapshot.removeFromSuperview()
             fromVC.view.removeFromSuperview()
-            transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            
+            cell.subviews.forEach { $0.alpha = 0 }
+            UIView.animate(withDuration: 0.4, animations: {
+                cell.subviews.forEach { $0.alpha = 1 }
+            }, completion: { _ in
+                avatarSnapshot.removeFromSuperview()
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            })
         })
     }
 }

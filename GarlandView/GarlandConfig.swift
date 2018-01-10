@@ -28,7 +28,7 @@ public struct GarlandConfig {
     public var sideInsets = UIEdgeInsets(top: 10, left: 4.5, bottom: 10, right: 4)
     
     /// Duration of animation between GlidingCollection sections.
-    public var animationDuration: Double = 0.5
+    public var animationDuration: Double = 0.7
     
     /// Inactive sections buttons color.
     public var inactiveButtonsColor: UIColor = .black

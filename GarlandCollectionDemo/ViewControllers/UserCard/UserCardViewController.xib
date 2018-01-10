@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,21 +25,27 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXB-mq-11R">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                     <color key="backgroundColor" red="0.2627450980392157" green="0.28627450980392155" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card_bg" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-tK-87y">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                 </imageView>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEM-NS-j3Q">
-                    <rect key="frame" x="37" y="140" width="246" height="331"/>
+                    <rect key="frame" x="37" y="140" width="301" height="575"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charles  Bailey" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS7-YD-ici">
+                            <rect key="frame" x="99.666666666666657" y="50" width="101" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="71i-ad-t8W">
-                            <rect key="frame" x="0.0" y="159" width="246" height="172"/>
+                            <rect key="frame" x="0.0" y="159" width="301" height="416"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="15" id="caS-Z4-cIp" customClass="GarlandCardLayout" customModule="GarlandView">
                                 <size key="itemSize" width="300" height="140"/>
@@ -53,13 +59,13 @@
                             </connections>
                         </collectionView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 years • Los Angeles, LA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px9-Nz-e6h">
-                            <rect key="frame" x="47" y="83" width="152" height="14.5"/>
+                            <rect key="frame" x="74.666666666666686" y="83" width="152" height="14.666666666666671"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.7843137255" green="0.78823529410000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;Be honest, be kind, in equal measure but in that order.”" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8N-o5-ccC">
-                            <rect key="frame" x="30" y="112.5" width="186" height="31.5"/>
+                            <rect key="frame" x="30" y="112.66666666666664" width="241" height="31.333333333333329"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.69019607839999997" green="0.81960784310000001" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -71,6 +77,8 @@
                         <constraint firstAttribute="trailing" secondItem="71i-ad-t8W" secondAttribute="trailing" id="RI1-BW-bbJ"/>
                         <constraint firstAttribute="bottom" secondItem="71i-ad-t8W" secondAttribute="bottom" id="TIM-dA-6gj"/>
                         <constraint firstItem="R8N-o5-ccC" firstAttribute="leading" secondItem="VEM-NS-j3Q" secondAttribute="leading" constant="30" id="TSE-EI-Dmu"/>
+                        <constraint firstItem="TS7-YD-ici" firstAttribute="centerX" secondItem="VEM-NS-j3Q" secondAttribute="centerX" id="TxX-c8-ks9"/>
+                        <constraint firstItem="Px9-Nz-e6h" firstAttribute="top" secondItem="TS7-YD-ici" secondAttribute="bottom" constant="15" id="aDR-Q9-WrU"/>
                         <constraint firstItem="71i-ad-t8W" firstAttribute="top" secondItem="R8N-o5-ccC" secondAttribute="bottom" constant="15" id="nKz-jF-1UJ"/>
                         <constraint firstItem="71i-ad-t8W" firstAttribute="leading" secondItem="VEM-NS-j3Q" secondAttribute="leading" id="oSY-LS-eRc"/>
                         <constraint firstAttribute="trailing" secondItem="R8N-o5-ccC" secondAttribute="trailing" constant="30" id="uTG-DL-voq"/>
@@ -78,7 +86,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HVf-VM-trq">
-                    <rect key="frame" x="123" y="491" width="74" height="60"/>
+                    <rect key="frame" x="150.66666666666666" y="735" width="74" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="9CM-OM-0qH"/>
                         <constraint firstAttribute="width" constant="74" id="XZD-WW-RDe"/>
@@ -90,7 +98,7 @@
                     <state key="normal" title="Close" image="Close_button"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAS-fM-llg" userLabel="Connect Button">
-                    <rect key="frame" x="57" y="491" width="74" height="60"/>
+                    <rect key="frame" x="57" y="735" width="74" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="BMi-JC-U78"/>
                         <constraint firstAttribute="width" constant="74" id="Hu9-5T-Cft"/>
@@ -102,7 +110,7 @@
                     <state key="normal" title="Connect" image="Connect_button"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKz-mk-yWq">
-                    <rect key="frame" x="189" y="491" width="74" height="60"/>
+                    <rect key="frame" x="244" y="735" width="74" height="60"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="0YE-Po-iGV"/>
                         <constraint firstAttribute="width" constant="74" id="Tai-M6-r6L"/>
@@ -116,18 +124,12 @@
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="bSy-NQ-obi">
-                    <rect key="frame" x="125" y="105" width="70" height="70"/>
+                    <rect key="frame" x="152.66666666666666" y="105" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="Mqd-oA-mU1"/>
                         <constraint firstAttribute="height" constant="70" id="OtH-Jw-Ypt"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charles  Bailey" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TS7-YD-ici">
-                    <rect key="frame" x="109.5" y="190" width="101" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -145,11 +147,9 @@
                 <constraint firstAttribute="bottom" secondItem="MXB-mq-11R" secondAttribute="bottom" id="QES-gJ-5fb"/>
                 <constraint firstItem="VEM-NS-j3Q" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RFF-J4-RNd"/>
                 <constraint firstItem="MXB-mq-11R" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="SDL-LV-1S2"/>
-                <constraint firstItem="TS7-YD-ici" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZhN-Oa-qFf"/>
-                <constraint firstItem="TS7-YD-ici" firstAttribute="top" secondItem="bSy-NQ-obi" secondAttribute="bottom" constant="15" id="bDK-25-TAs"/>
                 <constraint firstItem="VEM-NS-j3Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="140" id="chI-vg-lUt"/>
                 <constraint firstAttribute="trailing" secondItem="h1p-tK-87y" secondAttribute="trailing" id="k5S-5R-AZH"/>
-                <constraint firstItem="Px9-Nz-e6h" firstAttribute="top" secondItem="TS7-YD-ici" secondAttribute="bottom" constant="15" id="m3T-GS-lbc"/>
+                <constraint firstItem="TS7-YD-ici" firstAttribute="top" secondItem="bSy-NQ-obi" secondAttribute="bottom" constant="15" id="q8S-Kz-VjA"/>
                 <constraint firstItem="HVf-VM-trq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qlP-pl-Ek7"/>
                 <constraint firstItem="bSy-NQ-obi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vi6-X3-nX3"/>
                 <constraint firstItem="bSy-NQ-obi" firstAttribute="top" secondItem="VEM-NS-j3Q" secondAttribute="top" constant="-35" id="yIH-Tj-KWo"/>
