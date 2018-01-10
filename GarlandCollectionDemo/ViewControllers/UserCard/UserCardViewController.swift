@@ -44,7 +44,7 @@ class UserCardViewController: GarlandCardController {
                 centerYCardConstrait[0].constant = 100
             })
         }, completion: {_ in
-            let cellSize = CGSize(width:300 , height:80)
+            let cellSize = CGSize(width: 300 , height: 110)
             
             let sideInset = (self.card.frame.width - cellSize.width)/2
             
@@ -68,7 +68,7 @@ class UserCardViewController: GarlandCardController {
 extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: GarlandConfig.shared.cardsSize.width, height: GarlandConfig.shared.cardsSize.height/1.5)
+        return CGSize(width: collectionView.bounds.width, height: 110)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

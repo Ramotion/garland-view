@@ -12,7 +12,7 @@ import UIKit
 class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return GarlandConfig.shared.animationDuration
+        return 8 //GarlandConfig.shared.animationDuration
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -20,6 +20,8 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
             let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandCardController,
             let _ = toVC.view.snapshotView(afterScreenUpdates: true),
             let fromCell = fromVC.garlandView.collectionView.cellForItem(at: fromVC.selectedCardIndex) as? GarlandCollectionCell else {
+                
+                transitionContext.completeTransition(false)
                 return
         }
         
@@ -28,10 +30,8 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
         toVC.view.alpha = 0.0
         
         for cell in toVC.garlandCardCollection.visibleCells {
-            for subview in cell.contentView.subviews {
-                if subview is UILabel {
-                    subview.alpha = 0.0
-                }
+            for case let subview as UILabel in cell.contentView.subviews {
+                subview.alpha = 0.0
             }
         }
         
@@ -42,23 +42,46 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
         containerView.addSubview(snapshot!)
         
 
-        let avatarSnapshot = fromCell.avatar.snapshotView(afterScreenUpdates: true)
-        let convertedAvatarCoord = fromCell.convert(fromCell.avatar.frame.origin, to: nil)
-        avatarSnapshot?.frame.origin = convertedAvatarCoord
-        containerView.addSubview(avatarSnapshot!)
-        
+        let avatarSnapshot = UIImageView(image: fromCell.avatar.image)
+        avatarSnapshot.frame = fromCell.convert(fromCell.avatar.frame, to: containerView)
+        avatarSnapshot.clipsToBounds = true
+        containerView.addSubview(avatarSnapshot)
         
         let duration = transitionDuration(using: transitionContext)
+        
+        //animate avatar layer properties
+        let cornerRadiusAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.cornerRadius))
+        cornerRadiusAnimation.fromValue = fromCell.avatar.layer.cornerRadius
+        cornerRadiusAnimation.toValue = toVC.avatar.layer.cornerRadius
+        
+        let borderWidthAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.borderWidth))
+        borderWidthAnimation.fromValue = fromCell.avatar.layer.borderWidth
+        borderWidthAnimation.toValue = toVC.avatar.layer.borderWidth
+        
+        let borderColorAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.borderColor))
+        borderColorAnimation.fromValue = fromCell.avatar.layer.borderColor
+        borderColorAnimation.toValue = toVC.avatar.layer.borderColor
+        
+        let animations = CAAnimationGroup()
+        animations.animations = [cornerRadiusAnimation, borderWidthAnimation, borderColorAnimation]
+        animations.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animations.duration = duration * 0.6
+        animations.fillMode = kCAFillModeForwards
+        animations.isRemovedOnCompletion = false
+        avatarSnapshot.layer.add(animations, forKey: "transitionAnimations")
+        
+        
+        //base transition animations
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 3/5, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.6, animations: {
                 snapshot?.frame = cardConvertedFrame
-                avatarSnapshot?.frame = toVC.avatar.frame
+                avatarSnapshot.frame = toVC.avatar.frame
             })
-            UIView.addKeyframe(withRelativeStartTime: 3/5, relativeDuration: 2/5, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4, animations: {
                 toVC.view.alpha = 1.0
             })
         }, completion: { _ in
-            avatarSnapshot?.removeFromSuperview()
+            avatarSnapshot.removeFromSuperview()
             snapshot?.removeFromSuperview()
             UIView.animateKeyframes(withDuration: 0.1, delay: 0, options: .calculationModeLinear, animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 5/5, animations: {

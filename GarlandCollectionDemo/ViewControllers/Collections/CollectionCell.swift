@@ -19,11 +19,11 @@ class CollectionCell: GarlandCollectionCell {
         layer.masksToBounds             = false
         
         let config = GarlandConfig.shared
-        self.layer.cornerRadius  = config.cardRadius
-        self.layer.shadowOffset = config.cardShadowOffset
-        self.layer.shadowColor = config.cardShadowColor.cgColor
-        self.layer.shadowOpacity = config.cardShadowOpacity
-        self.layer.shadowRadius = config.cardShadowRadius
+        layer.cornerRadius  = config.cardRadius
+        layer.shadowOffset = config.cardShadowOffset
+        layer.shadowColor = config.cardShadowColor.cgColor
+        layer.shadowOpacity = config.cardShadowOpacity
+        layer.shadowRadius = config.cardShadowRadius
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
