@@ -105,6 +105,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39869674200604010066E0C6 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */,
+				4EDC226E1F00880A007C92E8 /* GarlandCardPresentAnimationController.swift */,
+				4EDC22741F028782007C92E8 /* GarlandCardDismissAnimationController.swift */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
+		398696752006041E0066E0C6 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EB0651EED8E5100DD634C /* GarlandCollection.swift */,
+				4E8475111F0405F80016CDBA /* GarlandCollectionCell.swift */,
+				4E0EB0661EED8E5100DD634C /* GarlandLayout.swift */,
+			);
+			name = Collection;
+			sourceTree = "<group>";
+		};
+		39869676200605010066E0C6 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4E0EB0691EED8F9F00DD634C /* GarlandConfig.swift */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		398696772006051B0066E0C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */,
+				4EDC226C1F0087F1007C92E8 /* GarlandCardController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		39A59C7D2004C468007F8ECF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,15 +194,10 @@
 		4E0EB05B1EED8D1300DD634C /* GarlandView */ = {
 			isa = PBXGroup;
 			children = (
-				4E0EB0651EED8E5100DD634C /* GarlandCollection.swift */,
-				4E0EB0691EED8F9F00DD634C /* GarlandConfig.swift */,
-				4E0EB0661EED8E5100DD634C /* GarlandLayout.swift */,
-				4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */,
-				4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */,
-				4EDC226C1F0087F1007C92E8 /* GarlandCardController.swift */,
-				4EDC226E1F00880A007C92E8 /* GarlandCardPresentAnimationController.swift */,
-				4EDC22741F028782007C92E8 /* GarlandCardDismissAnimationController.swift */,
-				4E8475111F0405F80016CDBA /* GarlandCollectionCell.swift */,
+				398696772006051B0066E0C6 /* Controllers */,
+				398696752006041E0066E0C6 /* Collection */,
+				39869674200604010066E0C6 /* Transitions */,
+				39869676200605010066E0C6 /* Config */,
 				4E0EB0641EED8E2B00DD634C /* Resources */,
 			);
 			path = GarlandView;

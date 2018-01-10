@@ -42,16 +42,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzs-bL-Lcf" userLabel="Background">
-                    <rect key="frame" x="-4" y="0.0" width="300" height="120"/>
+                    <rect key="frame" x="0.0" y="0.0" width="292" height="120"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your go-to song when you are singing in the shower?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWG-HE-7zZ">
-                            <rect key="frame" x="20" y="15.000000000000002" width="260" height="28.666666666666671"/>
+                            <rect key="frame" x="20" y="15.000000000000002" width="252" height="28.666666666666671"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LWv-h1-uiH">
-                            <rect key="frame" x="0.0" y="85" width="300" height="35"/>
+                            <rect key="frame" x="0.0" y="85" width="292" height="35"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVa-Lz-ci9">
                                     <rect key="frame" x="20" y="6" width="36" height="22"/>
@@ -61,7 +61,7 @@
                                     </state>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yze-rV-Pq9" userLabel="Like button">
-                                    <rect key="frame" x="240" y="12" width="10" height="10"/>
+                                    <rect key="frame" x="232" y="12" width="10" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="yqo-B6-nhQ"/>
                                         <constraint firstAttribute="width" constant="10" id="zYB-33-IIq"/>
@@ -69,7 +69,7 @@
                                     <state key="normal" image="like_img"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9i-SU-Jbo">
-                                    <rect key="frame" x="270" y="12" width="10" height="10"/>
+                                    <rect key="frame" x="262" y="12" width="10" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="XFM-iS-xGe"/>
                                         <constraint firstAttribute="width" constant="10" id="zLm-DT-g75"/>
@@ -89,22 +89,22 @@
                             </constraints>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZL-Q7-cDI">
-                            <rect key="frame" x="0.0" y="43" width="300" height="40"/>
+                            <rect key="frame" x="0.0" y="43" width="292" height="40"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 years • San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmb-gM-u3Z">
-                                    <rect key="frame" x="58" y="21" width="138" height="12"/>
+                                    <rect key="frame" x="57.333333333333343" y="21" width="138" height="12"/>
                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloria Ross asked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9M-Mi-jfH">
-                                    <rect key="frame" x="58" y="7" width="86" height="12"/>
+                                    <rect key="frame" x="57.333333333333343" y="7" width="86" height="12"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-Vs-JRh">
-                                    <rect key="frame" x="20" y="5" width="30" height="30"/>
+                                    <rect key="frame" x="20" y="5" width="29.333333333333329" height="30"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -137,10 +137,10 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="yzs-bL-Lcf" firstAttribute="leading" secondItem="0da-G7-4bT" secondAttribute="leading" constant="-4" id="9Fa-nG-wtL"/>
+                <constraint firstItem="yzs-bL-Lcf" firstAttribute="leading" secondItem="0da-G7-4bT" secondAttribute="leading" id="9Fa-nG-wtL"/>
                 <constraint firstItem="yzs-bL-Lcf" firstAttribute="top" secondItem="0da-G7-4bT" secondAttribute="top" id="aYL-Yl-lmK"/>
                 <constraint firstAttribute="bottom" secondItem="yzs-bL-Lcf" secondAttribute="bottom" id="icQ-MK-yAM"/>
-                <constraint firstAttribute="trailing" secondItem="yzs-bL-Lcf" secondAttribute="trailing" constant="-4" id="zfR-gQ-oPL"/>
+                <constraint firstAttribute="trailing" secondItem="yzs-bL-Lcf" secondAttribute="trailing" id="zfR-gQ-oPL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="29" y="750"/>

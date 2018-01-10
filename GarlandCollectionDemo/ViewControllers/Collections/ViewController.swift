@@ -71,8 +71,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let divided = startOffset / 3
         let offsetCounter = startOffset / 1.5
         let height = max(minHeight, min(maxHeight, 1.0 - divided))
-        let alpha = max(minAlpha, min(maxHeight, 1.0 - offsetCounter))
-        let avatarSize = max(minAlpha, min(maxHeight, 1.0 - offsetCounter*4))
+        let alpha = max(minAlpha, min(maxHeight, 1.0 - offsetCounter * 2))
+        let avatarSize = max(0, min(maxHeight, 1.0 - offsetCounter))
         avatarView.transform = CGAffineTransform(scaleX: 1.0, y: avatarSize)
         avatarView.alpha = alpha
         headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height

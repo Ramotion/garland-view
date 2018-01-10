@@ -88,9 +88,9 @@ public extension GarlandViewController {
     }
     
     fileprivate func setupHeader() {
-        headerView.frame.size = GarlandConfig.shared.cardsSize
-        headerView.frame.origin.x = UIScreen.main.bounds.width/2 - headerView.frame.width/2
-        headerView.frame.origin.y = garlandView.collectionView.contentOffset.y
+        headerView.frame.size = GarlandConfig.shared.headerSize
+        headerView.frame.origin.x = (UIScreen.main.bounds.width - headerView.frame.width)/2
+        headerView.frame.origin.y = garlandView.collectionView.contentOffset.y - (GarlandConfig.shared.headerSize.height - GarlandConfig.shared.cardsSize.height)/2
         headerView.tag = 99
         
         if let background = headerView.subviews.first {
