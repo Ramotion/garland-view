@@ -17,10 +17,6 @@ public class GarlandCollection: UIView {
         return collectionView.collectionViewLayout as! GarlandLayout
     }
     
-    fileprivate var config: GarlandConfig {
-        return GarlandConfig.shared
-    }
-    
     override public init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -45,6 +41,7 @@ fileprivate extension GarlandCollection {
     }
     
     fileprivate func setupCollectionView() {
+        let config = GarlandConfig.shared
         layout.itemSize = config.cardsSize
         layout.minimumLineSpacing = config.cardsSpacing
         layout.scrollDirection = .vertical
