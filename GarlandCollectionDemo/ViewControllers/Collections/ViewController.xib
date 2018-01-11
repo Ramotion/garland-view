@@ -37,7 +37,7 @@
             </constraints>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
-        <view contentMode="scaleToFill" id="0da-G7-4bT" userLabel="HeaderView">
+        <view contentMode="scaleToFill" id="0da-G7-4bT" userLabel="HeaderView" customClass="HeaderView" customModule="Garland_Collection" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="292" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -103,7 +103,7 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-Vs-JRh">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Ywl-Vs-JRh">
                                     <rect key="frame" x="20" y="5" width="29.333333333333329" height="30"/>
                                 </imageView>
                             </subviews>
@@ -143,12 +143,15 @@
                 <constraint firstAttribute="trailing" secondItem="yzs-bL-Lcf" secondAttribute="trailing" id="zfR-gQ-oPL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="avatar" destination="Ywl-Vs-JRh" id="Pch-eb-jEr"/>
+            </connections>
             <point key="canvasLocation" x="29" y="750"/>
         </view>
     </objects>
     <resources>
+        <image name="avatar" width="48" height="50"/>
         <image name="comment_img" width="24" height="22"/>
-        <image name="header_avatar" width="70" height="70"/>
         <image name="like_img" width="24" height="23"/>
     </resources>
 </document>

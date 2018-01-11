@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3986967B2007B4C30066E0C6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3986967A2007B4C30066E0C6 /* HeaderView.swift */; };
+		3986967D2007B5310066E0C6 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3986967C2007B5310066E0C6 /* HeaderView.xib */; };
 		39A59C892004C468007F8ECF /* UserCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C7F2004C468007F8ECF /* UserCardViewController.xib */; };
 		39A59C8A2004C468007F8ECF /* CardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C802004C468007F8ECF /* CardCollectionCell.xib */; };
 		39A59C8B2004C468007F8ECF /* UserCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C812004C468007F8ECF /* UserCardViewController.swift */; };
@@ -58,6 +60,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3986967A2007B4C30066E0C6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		3986967C2007B5310066E0C6 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		39A59C7F2004C468007F8ECF /* UserCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCardViewController.xib; sourceTree = "<group>"; };
 		39A59C802004C468007F8ECF /* CardCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionCell.xib; sourceTree = "<group>"; };
 		39A59C812004C468007F8ECF /* UserCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 				39A59C852004C468007F8ECF /* ViewController.xib */,
 				39A59C832004C468007F8ECF /* CollectionCell.swift */,
 				39A59C862004C468007F8ECF /* CollectionCell.xib */,
+				3986967A2007B4C30066E0C6 /* HeaderView.swift */,
+				3986967C2007B5310066E0C6 /* HeaderView.xib */,
 			);
 			path = Collections;
 			sourceTree = "<group>";
@@ -352,6 +358,7 @@
 				39A59C8F2004C468007F8ECF /* CollectionCell.xib in Resources */,
 				39A59C892004C468007F8ECF /* UserCardViewController.xib in Resources */,
 				39A59C8A2004C468007F8ECF /* CardCollectionCell.xib in Resources */,
+				3986967D2007B5310066E0C6 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +391,7 @@
 				4EF4A6E21F8BB6B60094BADF /* UIView.swift in Sources */,
 				39A59C8D2004C468007F8ECF /* ViewController.swift in Sources */,
 				39A59C8C2004C468007F8ECF /* CollectionCell.swift in Sources */,
+				3986967B2007B4C30066E0C6 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

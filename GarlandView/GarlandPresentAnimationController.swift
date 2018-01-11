@@ -118,7 +118,7 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1, animations: {
-                toHeaderSnapshot.alpha = 0.2
+                toHeaderSnapshot.alpha = 1
                 toFakeHeader.alpha = 0
             })
             
