@@ -31,7 +31,6 @@ class UserCardDismissAnimationController: NSObject, UIViewControllerAnimatedTran
         
         let convertedCellCoord = toVC.garlandCollection.convert(cell.frame.origin, to: nil)
         let convertedCellAvatarCoord = cell.convert(cell.avatar.frame.origin, to: nil)
-
         
         let snapshot = UIView(frame: fromVC.card.frame)
         snapshot.layer.cornerRadius = fromVC.card.layer.cornerRadius
@@ -44,7 +43,6 @@ class UserCardDismissAnimationController: NSObject, UIViewControllerAnimatedTran
         fromVC.avatar.alpha = 0
         containerView.backgroundColor = .clear
     
-        
         let avatarSnapshot = UIImageView(image: fromVC.avatar.image)
         avatarSnapshot.frame = fromVC.avatar.superview?.convert(fromVC.avatar.frame, to: containerView) ?? fromVC.avatar.frame
         avatarSnapshot.clipsToBounds = true
@@ -73,7 +71,6 @@ class UserCardDismissAnimationController: NSObject, UIViewControllerAnimatedTran
         animations.isRemovedOnCompletion = false
         avatarSnapshot.layer.add(animations, forKey: "transitionAnimations")
 
-    
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
 
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.4, animations: {

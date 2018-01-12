@@ -38,7 +38,6 @@ class UserCardPresentAnimationController: NSObject, UIViewControllerAnimatedTran
         snapshot?.frame = CGRect(x: convertedCellCoord.x, y: convertedCellCoord.y, width: GarlandConfig.shared.cardsSize.width, height: GarlandConfig.shared.cardsSize.height)
         containerView.addSubview(snapshot!)
         
-
         let avatarSnapshot = UIImageView(image: fromCell.avatar.image)
         avatarSnapshot.frame = fromCell.convert(fromCell.avatar.frame, to: containerView)
         avatarSnapshot.clipsToBounds = true
@@ -69,7 +68,6 @@ class UserCardPresentAnimationController: NSObject, UIViewControllerAnimatedTran
         
         toVC.card.alpha = 0
         
-        //base transition animations
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                 snapshot?.frame = cardConvertedFrame

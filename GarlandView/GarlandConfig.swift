@@ -30,9 +30,6 @@ public struct GarlandConfig {
     /// Duration of animation between GlidingCollection sections.
     public var animationDuration: Double = 0.7
     
-    /// Inactive sections buttons color.
-    public var inactiveButtonsColor: UIColor = .black
-    
     /// Space between collectionView's cells.
     public var cardsSpacing: CGFloat = 30
     
