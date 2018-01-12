@@ -26,8 +26,8 @@ class GarlandCardDismissAnimationController: NSObject, UIViewControllerAnimatedT
         
         let containerView = transitionContext.containerView
         containerView.insertSubview(toVC.view, at: 0)
-        let cell = toVC.garlandView.collectionView.cellForItem(at: toVC.selectedCardIndex) as! GarlandCollectionCell
-        let convertedCellCoord = toVC.garlandView.collectionView.convert(cell.frame.origin, to: nil)
+        let cell = toVC.garlandCollection.collectionView.cellForItem(at: toVC.selectedCardIndex) as! GarlandCollectionCell
+        let convertedCellCoord = toVC.garlandCollection.collectionView.convert(cell.frame.origin, to: nil)
         let convertedCellAvatarCoord = cell.convert(cell.avatar.frame.origin, to: nil)
 
         

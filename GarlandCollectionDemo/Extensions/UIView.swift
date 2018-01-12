@@ -86,3 +86,17 @@ private extension UIView {
         layer.addSublayer(borderLayer)
     }
 }
+
+extension UIView {
+    
+    class func loadFromNib<T>(withName nibName: String) -> T? {
+        let nib  = UINib.init(nibName: nibName, bundle: nil)
+        let nibObjects = nib.instantiate(withOwner: nil, options: nil)
+        for object in nibObjects {
+            if let result = object as? T {
+                return result
+            }
+        }
+        return nil
+    }
+}

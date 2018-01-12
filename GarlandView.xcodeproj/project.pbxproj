@@ -14,7 +14,6 @@
 		39A59C8B2004C468007F8ECF /* UserCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C812004C468007F8ECF /* UserCardViewController.swift */; };
 		39A59C8C2004C468007F8ECF /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C832004C468007F8ECF /* CollectionCell.swift */; };
 		39A59C8D2004C468007F8ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C842004C468007F8ECF /* ViewController.swift */; };
-		39A59C8E2004C468007F8ECF /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C852004C468007F8ECF /* ViewController.xib */; };
 		39A59C8F2004C468007F8ECF /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C862004C468007F8ECF /* CollectionCell.xib */; };
 		39A59C9220050475007F8ECF /* CardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8475181F05880C0016CDBA /* CardCollectionCell.swift */; };
 		4E0EB05E1EED8D1300DD634C /* GarlandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0EB05C1EED8D1300DD634C /* GarlandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,7 +66,6 @@
 		39A59C812004C468007F8ECF /* UserCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardViewController.swift; sourceTree = "<group>"; };
 		39A59C832004C468007F8ECF /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		39A59C842004C468007F8ECF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		39A59C852004C468007F8ECF /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		39A59C862004C468007F8ECF /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		4E0EB0591EED8D1300DD634C /* GarlandView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarlandView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EB05C1EED8D1300DD634C /* GarlandView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GarlandView.h; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 			isa = PBXGroup;
 			children = (
 				39A59C842004C468007F8ECF /* ViewController.swift */,
-				39A59C852004C468007F8ECF /* ViewController.xib */,
 				39A59C832004C468007F8ECF /* CollectionCell.swift */,
 				39A59C862004C468007F8ECF /* CollectionCell.xib */,
 				3986967A2007B4C30066E0C6 /* HeaderView.swift */,
@@ -353,7 +350,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E0EB07D1EEEB80F00DD634C /* LaunchScreen.storyboard in Resources */,
-				39A59C8E2004C468007F8ECF /* ViewController.xib in Resources */,
 				4E0EB07A1EEEB80F00DD634C /* Assets.xcassets in Resources */,
 				39A59C8F2004C468007F8ECF /* CollectionCell.xib in Resources */,
 				39A59C892004C468007F8ECF /* UserCardViewController.xib in Resources */,

@@ -1,6 +1,6 @@
 //
-//  GarlandViewController.swift
-//  GarlandView
+//  garlandCollectionController.swift
+//  garlandCollection
 //
 //  Created by Slava Yusupov.
 //  Copyright © 2017 Ramotion. All rights reserved.
@@ -11,12 +11,13 @@ import UIKit
 
 open class GarlandViewController: UIViewController {
     
-    @IBOutlet open var garlandView: GarlandCollection!
-    @IBOutlet open var headerView: UIView!
-    open var backgroundHeader: UIView = UIView()
+    public let garlandCollection = GarlandCollection()
     
-    var rightFakeHeader: UIView = UIView()
-    var leftFakeHeader: UIView = UIView()
+    public var backgroundHeader = UIView()
+    public private(set) var headerView = UIView()
+    
+    var rightFakeHeader = UIView()
+    var leftFakeHeader = UIView()
     
     open var animationXDest: CGFloat = 0.0
     open var selectedCardIndex: IndexPath = IndexPath()
@@ -29,11 +30,17 @@ open class GarlandViewController: UIViewController {
         
         modalPresentationStyle = .custom
         transitioningDelegate = self
-        isPresenting = false
+        
+        //setup garland collection view
+        garlandCollection.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
+        garlandCollection.frame = CGRect(x: 0, y: GarlandConfig.shared.headerVerticalOffset, width: view.bounds.width, height: view.bounds.height - GarlandConfig.shared.headerVerticalOffset)
+        garlandCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(garlandCollection)
+        
         setupBackground()
         setupFakeHeaders()
-        setupHeader()
-        garlandView.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
+        
+        //add horizontal pan gesture recognizer
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
         view.addGestureRecognizer(panGesture)
     }
@@ -53,6 +60,29 @@ open class GarlandViewController: UIViewController {
     open func preparePresentingToRight() { }
     
     open func preparePresentingToLeft() { }
+    
+    open func setupHeader(_ headerView: UIView) {
+        self.headerView = headerView
+        headerView.frame.size = GarlandConfig.shared.headerSize
+        headerView.frame.origin.x = (UIScreen.main.bounds.width - headerView.frame.width)/2
+        headerView.frame.origin.y = garlandCollection.collectionView.contentOffset.y - (GarlandConfig.shared.headerSize.height - GarlandConfig.shared.cardsSize.height)/2
+        headerView.tag = 99
+        
+        if let background = headerView.subviews.first {
+            background.layer.cornerRadius = GarlandConfig.shared.cardRadius
+            background.layer.masksToBounds = true
+        }
+        
+        let config = GarlandConfig.shared
+        headerView.layer.masksToBounds = false
+        headerView.layer.cornerRadius = config.cardRadius
+        headerView.layer.shadowOffset = config.cardShadowOffset
+        headerView.layer.shadowColor = config.cardShadowColor.cgColor
+        headerView.layer.shadowOpacity = config.cardShadowOpacity
+        headerView.layer.shadowRadius = config.cardShadowRadius
+        
+        garlandCollection.collectionView.insertSubview(headerView, at: 99)
+    }
 }
 
 
@@ -72,7 +102,7 @@ public extension GarlandViewController {
         let config = GarlandConfig.shared
         let color = UIColor(red: 151.0/255.0, green: 151.0/255.0, blue: 151.0/255.0, alpha: 1.0)
         let size = CGSize(width: config.headerSize.width/1.6, height: config.headerSize.height/1.6)
-        let verticalPosition = garlandView.frame.origin.y + (headerView.frame.height - size.height)/2
+        let verticalPosition = garlandCollection.frame.origin.y + (GarlandConfig.shared.headerSize.height - size.height)/2
         
         rightFakeHeader.frame.size = size
         rightFakeHeader.frame.origin.x = UIScreen.main.bounds.width - rightFakeHeader.frame.width/14
@@ -87,28 +117,6 @@ public extension GarlandViewController {
         leftFakeHeader.backgroundColor = color
         leftFakeHeader.layer.cornerRadius = config.cardRadius
         view.addSubview(leftFakeHeader)
-    }
-    
-    fileprivate func setupHeader() {
-        headerView.frame.size = GarlandConfig.shared.headerSize
-        headerView.frame.origin.x = (UIScreen.main.bounds.width - headerView.frame.width)/2
-        headerView.frame.origin.y = garlandView.collectionView.contentOffset.y - (GarlandConfig.shared.headerSize.height - GarlandConfig.shared.cardsSize.height)/2
-        headerView.tag = 99
-        
-        if let background = headerView.subviews.first {
-            background.layer.cornerRadius = GarlandConfig.shared.cardRadius
-            background.layer.masksToBounds = true
-        }
-        
-        let config = GarlandConfig.shared
-        headerView.layer.masksToBounds = false
-        headerView.layer.cornerRadius = config.cardRadius
-        headerView.layer.shadowOffset = config.cardShadowOffset
-        headerView.layer.shadowColor = config.cardShadowColor.cgColor
-        headerView.layer.shadowOpacity = config.cardShadowOpacity
-        headerView.layer.shadowRadius = config.cardShadowRadius
-        
-        garlandView.collectionView.insertSubview(headerView, at: 99)
     }
 }
 

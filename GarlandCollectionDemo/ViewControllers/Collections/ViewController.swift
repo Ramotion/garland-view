@@ -11,7 +11,7 @@ import GarlandView
 
 class ViewController: GarlandViewController {
 
-    @IBOutlet var avatarView: UIView!
+    private let header: HeaderView = UIView.loadFromNib(withName: "HeaderView")!
     
     let scrollViewContentOffsetMargin: CGFloat = -150.0
     var headerIsSmall: Bool = false
@@ -20,11 +20,13 @@ class ViewController: GarlandViewController {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
-        let collectionView = garlandView.collectionView
+        let collectionView = garlandCollection.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        super.setupHeader(header)
     }
 
     override func preparePresentingToRight() {
@@ -36,7 +38,7 @@ class ViewController: GarlandViewController {
     }
     
     private func showNext(disposition: CGFloat) {
-        let nextVC = ViewController.init(nibName: "ViewController", bundle: nil)
+        let nextVC = ViewController()
         nextVC.animationXDest = disposition
         nextVC.transitioningDelegate = nextVC
         nextVC.modalPresentationStyle = .custom
@@ -63,7 +65,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let startOffset = (garlandView.collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
+        let startOffset = (garlandCollection.collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
         let maxHeight: CGFloat = 1.0
         let minHeight: CGFloat = 0.7
         let minAlpha: CGFloat = 0.0
@@ -73,8 +75,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let height = max(minHeight, min(maxHeight, 1.0 - divided))
         let alpha = max(minAlpha, min(maxHeight, 1.0 - offsetCounter * 2))
         let avatarSize = max(0, min(maxHeight, 1.0 - offsetCounter))
-        avatarView.transform = CGAffineTransform(scaleX: 1.0, y: avatarSize)
-        avatarView.alpha = alpha
+        header.avatar.transform = CGAffineTransform(scaleX: 1.0, y: avatarSize)
+        header.avatar.alpha = alpha
         headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height
     }
 
