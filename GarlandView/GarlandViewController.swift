@@ -10,14 +10,15 @@ import Foundation
 import UIKit
 
 open class GarlandViewController: UIViewController {
+        
+    public var nextViewController: ((GarlandPresentAnimationController.TransitionDirection) -> GarlandViewController)?
     
     public let garlandCollection = GarlandCollection()
-    
     public var backgroundHeader = UIView()
     public private(set) var headerView = UIView()
     
-    var rightFakeHeader = UIView()
-    var leftFakeHeader = UIView()
+    let rightFakeHeader = UIView()
+    let leftFakeHeader = UIView()
     
     open var animationXDest: CGFloat = 0.0
     open var selectedCardIndex: IndexPath = IndexPath()
@@ -32,7 +33,6 @@ open class GarlandViewController: UIViewController {
         transitioningDelegate = self
         
         //setup garland collection view
-        garlandCollection.collectionView.contentInset.top = GarlandConfig.shared.cardsSize.height + GarlandConfig.shared.cardsSpacing
         garlandCollection.frame = CGRect(x: 0, y: GarlandConfig.shared.headerVerticalOffset, width: view.bounds.width, height: view.bounds.height - GarlandConfig.shared.headerVerticalOffset)
         garlandCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(garlandCollection)
@@ -48,40 +48,31 @@ open class GarlandViewController: UIViewController {
     @objc func handleGesture(gesture: UIPanGestureRecognizer) {
         let velocity = gesture.velocity(in: view)
         let translation = gesture.translation(in: view)
-        if velocity.x > 0, translation.x > 15, !isPresenting {
-            isPresenting = true
-            preparePresentingToRight()
-        } else if translation.x < -15, !isPresenting {
-            isPresenting = true
-            preparePresentingToLeft()
+        
+        if velocity.x > 0, translation.x > 15 {
+            performTransition(direction: .right)
+        } else if translation.x < -15 {
+            performTransition(direction: .left)
         }
     }
     
-    open func preparePresentingToRight() { }
-    
-    open func preparePresentingToLeft() { }
+    private func performTransition(direction: GarlandPresentAnimationController.TransitionDirection) {
+        guard !isPresenting else { return }
+        guard let vc = nextViewController?(direction) else { return }
+        isPresenting = true
+        vc.garlandPresentAnimationController.transitionDirection = direction
+        present(vc, animated: true, completion: nil)
+    }
     
     open func setupHeader(_ headerView: UIView) {
         self.headerView = headerView
+        garlandCollection.collectionView.contentInset.top = GarlandConfig.shared.headerSize.height + GarlandConfig.shared.cardsSpacing
+        
         headerView.frame.size = GarlandConfig.shared.headerSize
         headerView.frame.origin.x = (UIScreen.main.bounds.width - headerView.frame.width)/2
-        headerView.frame.origin.y = garlandCollection.collectionView.contentOffset.y - (GarlandConfig.shared.headerSize.height - GarlandConfig.shared.cardsSize.height)/2
-        headerView.tag = 99
+        headerView.frame.origin.y = garlandCollection.frame.minY
         
-        if let background = headerView.subviews.first {
-            background.layer.cornerRadius = GarlandConfig.shared.cardRadius
-            background.layer.masksToBounds = true
-        }
-        
-        let config = GarlandConfig.shared
-        headerView.layer.masksToBounds = false
-        headerView.layer.cornerRadius = config.cardRadius
-        headerView.layer.shadowOffset = config.cardShadowOffset
-        headerView.layer.shadowColor = config.cardShadowColor.cgColor
-        headerView.layer.shadowOpacity = config.cardShadowOpacity
-        headerView.layer.shadowRadius = config.cardShadowRadius
-        
-        garlandCollection.collectionView.insertSubview(headerView, at: 99)
+        view.addSubview(headerView)
     }
 }
 
@@ -123,7 +114,6 @@ public extension GarlandViewController {
 extension GarlandViewController: UIViewControllerTransitioningDelegate {
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        garlandPresentAnimationController.finalFromXFrame = animationXDest
         return garlandPresentAnimationController
     }
     

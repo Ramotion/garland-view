@@ -11,10 +11,10 @@ import UIKit
 
 public class GarlandCollection: UIView {
     
-    public let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: GarlandLayout())
+    public let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    fileprivate var layout: GarlandLayout {
-        return collectionView.collectionViewLayout as! GarlandLayout
+    fileprivate var layout: UICollectionViewFlowLayout {
+        return collectionView.collectionViewLayout as! UICollectionViewFlowLayout
     }
     
     override public init(frame: CGRect) {
@@ -42,12 +42,12 @@ fileprivate extension GarlandCollection {
     
     fileprivate func setupCollectionView() {
         let config = GarlandConfig.shared
+        let sideInset: CGFloat = (UIScreen.main.bounds.width - config.cardsSize.width)/2
+        layout.sectionInset = UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
         layout.itemSize = config.cardsSize
         layout.minimumLineSpacing = config.cardsSpacing
         layout.scrollDirection = .vertical
         
-        let sideInset: CGFloat = (UIScreen.main.bounds.width - config.cardsSize.width)/2
-        layout.sectionInset = UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
         collectionView.translatesAutoresizingMaskIntoConstraints = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false

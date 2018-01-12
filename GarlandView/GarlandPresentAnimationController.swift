@@ -9,15 +9,23 @@
 import Foundation
 import UIKit
 
-class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
-    var finalFromXFrame: CGFloat = 0.0
+    public enum TransitionDirection {
+        case left
+        case right
+    }
     
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+    var transitionDirection: TransitionDirection = .right
+    private var finalFromXFrame: CGFloat {
+        return transitionDirection == .right ? UIScreen.main.bounds.width : 0
+    }
+    
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return GarlandConfig.shared.animationDuration
     }
     
-    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? GarlandViewController,
               let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandViewController,
               let fromHeaderSnapshot = fromVC.headerView.snapshotView(afterScreenUpdates: true) else {
@@ -37,7 +45,7 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         toVC.view.layoutSubviews()
         
         let toHeaderSnapshot = toVC.headerView.snapshotView(afterScreenUpdates: true) ?? fromHeaderSnapshot
-        let headerStartFrame = fromCollection.convert(fromVC.headerView.frame, to: containerView)
+        let headerStartFrame = fromVC.view.convert(fromVC.headerView.frame, to: containerView)
         let headerFinalFrame = CGRect(origin: headerStartFrame.origin, size: toHeaderSnapshot.frame.size)
         
         //generate & configure cells transition views
@@ -108,9 +116,11 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
         toHeaderSnapshot.alpha = 0
         containerView.addSubview(toHeaderSnapshot)
         
-        //hide origin collections views
-        fromVC.garlandCollection.collectionView.alpha = 0.0
-        toVC.garlandCollection.collectionView.alpha = 0.0
+        //hide origin views
+        fromVC.headerView.alpha = 0
+        toVC.headerView.alpha = 0
+        fromVC.garlandCollection.collectionView.alpha = 0
+        toVC.garlandCollection.collectionView.alpha = 0
         
         AnimationHelper.perspectiveTransformForContainerView(containerView: containerView)
         let duration = transitionDuration(using: transitionContext)
@@ -165,6 +175,7 @@ class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTrans
             })
         }, completion: { _ in
             toVC.garlandCollection.collectionView.alpha = 1.0
+            toVC.headerView.alpha = 1
             
             for snap in visibleFromSnapshots {
                 snap.removeFromSuperview()

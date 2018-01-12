@@ -26,7 +26,38 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHd-sn-9t5">
+                        <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOm-Fe-SdK" userLabel="CollapsedView">
+                            <rect key="frame" x="0.0" y="43" width="292" height="40"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 years • San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-OX-YdR">
+                                    <rect key="frame" x="57.5" y="21" width="138" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloria Ross asked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-WO-hjn">
+                                    <rect key="frame" x="57.5" y="7" width="86" height="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="I89-1H-xo9">
+                                    <rect key="frame" x="20" y="5" width="29.5" height="30"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="FvG-OX-YdR" firstAttribute="bottom" secondItem="I89-1H-xo9" secondAttribute="bottom" constant="-2" id="2xT-WI-IFc"/>
+                                <constraint firstItem="I89-1H-xo9" firstAttribute="height" secondItem="GOm-Fe-SdK" secondAttribute="height" multiplier="0.75" id="92q-QZ-eUf"/>
+                                <constraint firstItem="Zif-WO-hjn" firstAttribute="leading" secondItem="I89-1H-xo9" secondAttribute="trailing" constant="8" id="KG2-Y4-yb8"/>
+                                <constraint firstItem="I89-1H-xo9" firstAttribute="centerY" secondItem="GOm-Fe-SdK" secondAttribute="centerY" id="Noh-W1-PXe"/>
+                                <constraint firstItem="I89-1H-xo9" firstAttribute="leading" secondItem="GOm-Fe-SdK" secondAttribute="leading" constant="20" id="S6A-bA-RuR"/>
+                                <constraint firstItem="FvG-OX-YdR" firstAttribute="leading" secondItem="I89-1H-xo9" secondAttribute="trailing" constant="8" id="f3g-M0-nDh"/>
+                                <constraint firstItem="I89-1H-xo9" firstAttribute="width" secondItem="GOm-Fe-SdK" secondAttribute="width" multiplier="0.1" id="fzz-5V-xPg"/>
+                                <constraint firstItem="Zif-WO-hjn" firstAttribute="top" secondItem="I89-1H-xo9" secondAttribute="top" constant="2" id="tkH-7i-EdQ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AHd-sn-9t5" userLabel="BottomView">
                             <rect key="frame" x="0.0" y="85" width="292" height="35"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cX1-G1-her">
@@ -64,37 +95,6 @@
                                 <constraint firstAttribute="height" constant="35" id="uNK-0f-i2W"/>
                             </constraints>
                         </view>
-                        <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOm-Fe-SdK">
-                            <rect key="frame" x="0.0" y="43" width="292" height="40"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 years • San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvG-OX-YdR">
-                                    <rect key="frame" x="57.5" y="21" width="138" height="12"/>
-                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gloria Ross asked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-WO-hjn">
-                                    <rect key="frame" x="57.5" y="7" width="86" height="12"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="I89-1H-xo9">
-                                    <rect key="frame" x="20" y="5" width="29.5" height="30"/>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="FvG-OX-YdR" firstAttribute="bottom" secondItem="I89-1H-xo9" secondAttribute="bottom" constant="-2" id="2xT-WI-IFc"/>
-                                <constraint firstItem="I89-1H-xo9" firstAttribute="height" secondItem="GOm-Fe-SdK" secondAttribute="height" multiplier="0.75" id="92q-QZ-eUf"/>
-                                <constraint firstItem="Zif-WO-hjn" firstAttribute="leading" secondItem="I89-1H-xo9" secondAttribute="trailing" constant="8" id="KG2-Y4-yb8"/>
-                                <constraint firstItem="I89-1H-xo9" firstAttribute="centerY" secondItem="GOm-Fe-SdK" secondAttribute="centerY" id="Noh-W1-PXe"/>
-                                <constraint firstItem="I89-1H-xo9" firstAttribute="leading" secondItem="GOm-Fe-SdK" secondAttribute="leading" constant="20" id="S6A-bA-RuR"/>
-                                <constraint firstItem="FvG-OX-YdR" firstAttribute="leading" secondItem="I89-1H-xo9" secondAttribute="trailing" constant="8" id="f3g-M0-nDh"/>
-                                <constraint firstItem="I89-1H-xo9" firstAttribute="width" secondItem="GOm-Fe-SdK" secondAttribute="width" multiplier="0.1" id="fzz-5V-xPg"/>
-                                <constraint firstItem="Zif-WO-hjn" firstAttribute="top" secondItem="I89-1H-xo9" secondAttribute="top" constant="2" id="tkH-7i-EdQ"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.69019607839999997" green="0.81960784310000001" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -122,6 +122,8 @@
             <viewLayoutGuide key="safeArea" id="KbP-6W-tYD"/>
             <connections>
                 <outlet property="avatar" destination="I89-1H-xo9" id="uoA-0F-o9d"/>
+                <outlet property="background" destination="Qw9-eW-48Z" id="2Ue-8h-C8Z"/>
+                <outlet property="collapsedView" destination="GOm-Fe-SdK" id="FFx-CJ-Ug4"/>
             </connections>
             <point key="canvasLocation" x="29" y="750"/>
         </view>

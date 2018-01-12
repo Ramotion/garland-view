@@ -16,7 +16,7 @@ class CollectionCell: GarlandCollectionCell {
         super.awakeFromNib()
         
         contentView.layer.masksToBounds = false
-        layer.masksToBounds             = false
+        layer.masksToBounds = false
         
         let config = GarlandConfig.shared
         layer.cornerRadius  = config.cardRadius

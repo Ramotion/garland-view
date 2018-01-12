@@ -19,30 +19,18 @@ class ViewController: GarlandViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
         let collectionView = garlandCollection.collectionView
         collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
         collectionView.backgroundColor = .clear
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        super.setupHeader(header)
-    }
-
-    override func preparePresentingToRight() {
-        showNext(disposition: UIScreen.main.bounds.width)
-    }
-    
-    override func preparePresentingToLeft() {
-        showNext(disposition: 0)
-    }
-    
-    private func showNext(disposition: CGFloat) {
-        let nextVC = ViewController()
-        nextVC.animationXDest = disposition
-        nextVC.transitioningDelegate = nextVC
-        nextVC.modalPresentationStyle = .custom
-        present(nextVC, animated: true, completion: nil)
+     
+        nextViewController = { _ in
+            return ViewController()
+        }
+        setupHeader(header)
     }
 }
 
@@ -74,10 +62,10 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let offsetCounter = startOffset / 1.5
         let height = max(minHeight, min(maxHeight, 1.0 - divided))
         let alpha = max(minAlpha, min(maxHeight, 1.0 - offsetCounter * 2))
-        let avatarSize = max(0, min(maxHeight, 1.0 - offsetCounter))
-        header.avatar.transform = CGAffineTransform(scaleX: 1.0, y: avatarSize)
-        header.avatar.alpha = alpha
-        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height*height
+        let collapsedViewSize = max(0, min(maxHeight, 1.0 - offsetCounter))
+        header.collapsedView.transform = CGAffineTransform(scaleX: 1.0, y: collapsedViewSize)
+        header.collapsedView.alpha = alpha
+        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height * height
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
