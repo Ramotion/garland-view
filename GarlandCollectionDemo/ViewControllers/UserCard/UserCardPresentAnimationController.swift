@@ -8,8 +8,9 @@
 
 import Foundation
 import UIKit
+import GarlandView
 
-class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+class UserCardPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return GarlandConfig.shared.animationDuration
@@ -17,9 +18,9 @@ class GarlandCardPresentAnimationController: NSObject, UIViewControllerAnimatedT
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? GarlandViewController,
-            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandCardController,
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? UserCardViewController,
             let _ = toVC.view.snapshotView(afterScreenUpdates: true),
-            let fromCell = fromVC.garlandCollection.collectionView.cellForItem(at: fromVC.selectedCardIndex) as? GarlandCollectionCell else {
+            let fromCell = fromVC.garlandCollection.collectionView.cellForItem(at: fromVC.selectedCardIndex) as? CollectionCell else {
                 
                 transitionContext.completeTransition(false)
                 return

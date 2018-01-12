@@ -99,12 +99,12 @@
             </constraints>
             <size key="customSize" width="284" height="120"/>
             <connections>
-                <outlet property="avatar" destination="djX-Qv-Og8" id="Beu-j4-jRM"/>
+                <outlet property="avatar" destination="djX-Qv-Og8" id="641-Ll-Iz8"/>
             </connections>
             <point key="canvasLocation" x="31" y="-11"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="avatar" width="50" height="50"/>
+        <image name="avatar" width="48" height="50"/>
     </resources>
 </document>

@@ -10,11 +10,14 @@ import Foundation
 import UIKit
 import GarlandView
 
-class CollectionCell: GarlandCollectionCell {
+class CollectionCell: UICollectionViewCell {
+    
+    @IBOutlet open var avatar: UIImageView!
     
     open override func awakeFromNib() {
         super.awakeFromNib()
         
+        avatar.layer.masksToBounds = true
         contentView.layer.masksToBounds = false
         layer.masksToBounds = false
         
@@ -27,5 +30,10 @@ class CollectionCell: GarlandCollectionCell {
         
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        avatar.layer.cornerRadius = avatar.frame.width/2
     }
 }

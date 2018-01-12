@@ -10,17 +10,42 @@ import Foundation
 import UIKit
 import GarlandView
 
-class UserCardViewController: GarlandCardController {
+class UserCardViewController: UIViewController {
     
     @IBOutlet var closeButton: UIButton!
     @IBOutlet var detailsButton: UIButton!
+    @IBOutlet open var garlandCardCollection: UICollectionView!
+    @IBOutlet open var avatar: UIImageView!
+    @IBOutlet open var card: UIView!
+    @IBOutlet open var background: UIView!
+    @IBOutlet open var headerImageView: UIImageView!
+    @IBOutlet open var cardConstraits: [NSLayoutConstraint]!
     
-    override func viewDidLoad() {
+    fileprivate let userCardPresentAnimationController = UserCardPresentAnimationController()
+    fileprivate let userCardDismissAnimationController = UserCardDismissAnimationController()
+    
+    override open func viewDidLoad() {
         super.viewDidLoad()
+        modalPresentationStyle = .custom
+        transitioningDelegate = self
+        
+        view.frame = UIScreen.main.bounds
+        view.backgroundColor = .gray
+        garlandCardCollection.bounces = true
+        setupCard()
+        
         closeButton.addTarget(self, action: #selector(closeButtonAction), for: .touchDown)
         
         let nib = UINib(nibName: "CardCollectionCell", bundle: nil)
         garlandCardCollection.register(nib, forCellWithReuseIdentifier: "CardCollectionCell")
+    }
+    
+    fileprivate func setupCard() {
+        card.layer.cornerRadius = GarlandConfig.shared.cardRadius
+        avatar.layer.masksToBounds = true
+        avatar.layer.cornerRadius = avatar.frame.width/2
+        avatar.layer.borderWidth = 3.0
+        avatar.layer.borderColor = #colorLiteral(red: 0.6901960784, green: 0.8196078431, blue: 0.4588235294, alpha: 1)
     }
     
     //MARK: Actions
@@ -52,5 +77,18 @@ extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = indexPath.item
         print("Selected item #\(item)")
+    }
+}
+
+
+//MARK: Transition delegate methods
+extension UserCardViewController: UIViewControllerTransitioningDelegate {
+    
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return userCardPresentAnimationController
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return userCardDismissAnimationController
     }
 }
