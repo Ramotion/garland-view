@@ -20,7 +20,7 @@ class UserCardDismissAnimationController: NSObject, UIViewControllerAnimatedTran
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? UserCardViewController,
             let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? GarlandViewController,
             let snapshotSubviews = fromVC.card.snapshotView(afterScreenUpdates: true),
-            let cell = toVC.garlandCollection.collectionView.cellForItem(at: toVC.selectedCardIndex) as? CollectionCell else {
+            let cell = toVC.garlandCollection.cellForItem(at: toVC.selectedCardIndex) as? CollectionCell else {
                 
                 transitionContext.completeTransition(false)
                 return
@@ -29,7 +29,7 @@ class UserCardDismissAnimationController: NSObject, UIViewControllerAnimatedTran
         let containerView = transitionContext.containerView
         containerView.insertSubview(toVC.view, at: 0)
         
-        let convertedCellCoord = toVC.garlandCollection.collectionView.convert(cell.frame.origin, to: nil)
+        let convertedCellCoord = toVC.garlandCollection.convert(cell.frame.origin, to: nil)
         let convertedCellAvatarCoord = cell.convert(cell.avatar.frame.origin, to: nil)
 
         

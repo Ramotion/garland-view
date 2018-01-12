@@ -34,8 +34,8 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
                 return
         }
     
-        let fromCollection = fromVC.garlandCollection.collectionView
-        let toCollection = toVC.garlandCollection.collectionView
+        let fromCollection = fromVC.garlandCollection
+        let toCollection = toVC.garlandCollection
         
         let containerView = transitionContext.containerView
         
@@ -119,8 +119,8 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
         //hide origin views
         fromVC.headerView.alpha = 0
         toVC.headerView.alpha = 0
-        fromVC.garlandCollection.collectionView.alpha = 0
-        toVC.garlandCollection.collectionView.alpha = 0
+        fromVC.garlandCollection.alpha = 0
+        toVC.garlandCollection.alpha = 0
         
         AnimationHelper.perspectiveTransformForContainerView(containerView: containerView)
         let duration = transitionDuration(using: transitionContext)
@@ -174,7 +174,7 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
                 toFakeHeader.alpha = 1
             })
         }, completion: { _ in
-            toVC.garlandCollection.collectionView.alpha = 1.0
+            toVC.garlandCollection.alpha = 1.0
             toVC.headerView.alpha = 1
             
             for snap in visibleFromSnapshots {

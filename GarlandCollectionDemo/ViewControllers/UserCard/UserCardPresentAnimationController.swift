@@ -20,7 +20,7 @@ class UserCardPresentAnimationController: NSObject, UIViewControllerAnimatedTran
         guard let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? GarlandViewController,
             let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? UserCardViewController,
             let _ = toVC.view.snapshotView(afterScreenUpdates: true),
-            let fromCell = fromVC.garlandCollection.collectionView.cellForItem(at: fromVC.selectedCardIndex) as? CollectionCell else {
+            let fromCell = fromVC.garlandCollection.cellForItem(at: fromVC.selectedCardIndex) as? CollectionCell else {
                 
                 transitionContext.completeTransition(false)
                 return
@@ -33,7 +33,7 @@ class UserCardPresentAnimationController: NSObject, UIViewControllerAnimatedTran
         toVC.avatar.alpha = 0
         
         let snapshot = toVC.card.snapshotView(afterScreenUpdates: true)
-        let convertedCellCoord = fromVC.garlandCollection.collectionView.convert(fromCell.frame.origin, to: nil)
+        let convertedCellCoord = fromVC.garlandCollection.convert(fromCell.frame.origin, to: nil)
         let cardConvertedFrame = toVC.view.convert(toVC.card.frame, to: nil)
         snapshot?.frame = CGRect(x: convertedCellCoord.x, y: convertedCellCoord.y, width: GarlandConfig.shared.cardsSize.width, height: GarlandConfig.shared.cardsSize.height)
         containerView.addSubview(snapshot!)

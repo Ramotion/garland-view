@@ -19,13 +19,10 @@ class ViewController: GarlandViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let nib = UINib(nibName: "CollectionCell", bundle: nil)
-        let collectionView = garlandCollection.collectionView
-        collectionView.register(nib, forCellWithReuseIdentifier: "Cell")
-        collectionView.backgroundColor = .clear
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        garlandCollection.register(nib, forCellWithReuseIdentifier: "Cell")
+        garlandCollection.delegate = self
+        garlandCollection.dataSource = self
      
         nextViewController = { _ in
             return ViewController()
@@ -53,7 +50,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let startOffset = (garlandCollection.collectionView.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
+        let startOffset = (garlandCollection.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
         let maxHeight: CGFloat = 1.0
         let minHeight: CGFloat = 0.7
         let minAlpha: CGFloat = 0.0

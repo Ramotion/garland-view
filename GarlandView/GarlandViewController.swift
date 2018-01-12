@@ -66,7 +66,7 @@ open class GarlandViewController: UIViewController {
     
     open func setupHeader(_ headerView: UIView) {
         self.headerView = headerView
-        garlandCollection.collectionView.contentInset.top = GarlandConfig.shared.headerSize.height + GarlandConfig.shared.cardsSpacing
+        garlandCollection.contentInset.top = GarlandConfig.shared.headerSize.height + GarlandConfig.shared.cardsSpacing
         
         headerView.frame.size = GarlandConfig.shared.headerSize
         headerView.frame.origin.x = (UIScreen.main.bounds.width - headerView.frame.width)/2

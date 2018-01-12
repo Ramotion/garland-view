@@ -47,7 +47,7 @@
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="71i-ad-t8W">
                             <rect key="frame" x="0.0" y="159" width="301" height="416"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="15" id="caS-Z4-cIp" customClass="GarlandCardLayout" customModule="GarlandView">
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="15" id="caS-Z4-cIp">
                                 <size key="itemSize" width="300" height="140"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -155,7 +155,7 @@
                 <constraint firstItem="bSy-NQ-obi" firstAttribute="top" secondItem="VEM-NS-j3Q" secondAttribute="top" constant="-35" id="yIH-Tj-KWo"/>
                 <constraint firstItem="h1p-tK-87y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yt8-f8-qnJ"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="54.5"/>
+            <point key="canvasLocation" x="33.5" y="54"/>
         </view>
     </objects>
     <resources>
