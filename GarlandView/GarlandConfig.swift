@@ -56,4 +56,10 @@ public struct GarlandConfig {
     
     /// Shadow opacity.
     public var cardShadowOpacity: Float = 0.3
+    
+    /// Header view underview color
+    public var backgroundHeaderColor: UIColor = #colorLiteral(red: 0.2618589401, green: 0.2853341103, blue: 0.3393315077, alpha: 1)
+
+    /// Left & right fake headers color
+    public var fakeHeaderColor: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
 }
