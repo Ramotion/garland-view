@@ -132,7 +132,7 @@ public class GarlandAnimationController: UIPercentDrivenInteractiveTransition, U
                 overlappedCells.forEach { $0.alpha = 0 }
             })
             
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.8, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0, animations: {
                 
                 fromHeaderSnapshot.frame = headerFromFrame
                 toHeaderSnapshot.frame = headerFinalFrame
@@ -140,6 +140,7 @@ public class GarlandAnimationController: UIPercentDrivenInteractiveTransition, U
                 fromHeaderSnapshot.alpha = 0.2
                 toHeaderSnapshot.alpha = 1
                 
+                toFakeHeader.frame = headerFinalFrame
                 fromFakeHeader.transform = CGAffineTransform(translationX: headerStartFrame.midX - headerToFrame.midX, y: 0)
                 
                 for (index, snapshot) in visibleToSnapshots.enumerated() {
@@ -192,27 +193,21 @@ public class GarlandAnimationController: UIPercentDrivenInteractiveTransition, U
         })
     }
     
-    func handleGesture(pan: UIPanGestureRecognizer) {
-        guard let targetView = pan.view else { return }
+    func handleInteractiveTranslaition(_ translation: CGFloat, state: UIGestureRecognizerState) {
         
-        let translation = pan.translation(in: targetView)
         let distance = UIScreen.main.bounds.width
-        let directedTranslation = transitionDirection == .left ? -translation.x : translation.x
+        let directedTranslation = transitionDirection == .left ? -translation : translation
         let d = min(max(0, (directedTranslation / distance)), 1)
         
-        switch (pan.state) {
+        switch (state) {
         case .began, .changed:
             update(d)
+            
+            let translationThreshold: CGFloat = 0.35
+            if d >= translationThreshold { finish() }
         default: // .Ended, .Cancelled, .Failed ...
             isInteractive = false
-            let translationThreshold: CGFloat = 0.35
-            let velocityThreshold: CGFloat = 400
-            let v = pan.velocity(in: targetView).x
-            if abs(v) >= velocityThreshold {
-                v > 0 ? cancel() : finish()
-            } else {
-                d >= translationThreshold ? finish() : cancel()
-            }
+            cancel()
         }
     }
 }

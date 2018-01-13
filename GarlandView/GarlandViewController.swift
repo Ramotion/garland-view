@@ -26,15 +26,12 @@ open class GarlandViewController: UIViewController {
         //setup garland collection view
         garlandCollection.frame = CGRect(x: 0, y: GarlandConfig.shared.headerVerticalOffset, width: view.bounds.width, height: view.bounds.height - GarlandConfig.shared.headerVerticalOffset)
         garlandCollection.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        garlandCollection.panGestureRecognizer.cancelsTouchesInView = false
+        garlandCollection.panGestureRecognizer.delaysTouchesBegan = false 
         view.addSubview(garlandCollection)
         
         setupBackground()
         setupFakeHeaders()
-        
-        //add horizontal pan gesture recognizer
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
-        panGesture.delegate = self
-        view.addGestureRecognizer(panGesture)
     }
     
     //MARK: Public methods
@@ -54,26 +51,46 @@ open class GarlandViewController: UIViewController {
     }
 }
 
+var startPoint: CGPoint? = nil
+
 
 //MARK: Transition methods
 extension GarlandViewController: UIGestureRecognizerDelegate {
     
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let panGesture = gestureRecognizer as? UIPanGestureRecognizer else { return false }
-        let translation = panGesture.translation(in: view)
-        return translation.x != 0 && translation.y == 0
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: view) else { return }
+        startPoint = location
     }
     
-    @objc private func handleGesture(gesture: UIPanGestureRecognizer) {
-        if gesture.state == .began {
-            let translation = gesture.translation(in: view)
-            let direction: GarlandAnimationController.TransitionDirection = translation.x > 0 ? .right : .left
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: view) else { return }
+        handleMovement(location: location, state: UIGestureRecognizerState.changed)
+    }
+    
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: view) else { return }
+        handleMovement(location: location, state: UIGestureRecognizerState.ended)
+        startPoint = nil
+    }
+    
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: view) else { return }
+        handleMovement(location: location, state: UIGestureRecognizerState.cancelled)
+        startPoint = nil
+    }
+    
+    private func handleMovement(location: CGPoint, state: UIGestureRecognizerState) {
+        guard let start = startPoint else { return }
+        let translation = location.x - start.x
+        
+        if abs(translation) > 0 {
+            let direction: GarlandAnimationController.TransitionDirection = translation > 0 ? .right : .left
             performTransition(direction: direction, isInteractive: true)
         }
         
         if let presentedVC = (presentedViewController as? GarlandViewController),
             let transitionDelegate = presentedVC.transitioningDelegate as? GarlandTransitioningDelegate {
-            transitionDelegate.animationController.handleGesture(pan: gesture)
+            transitionDelegate.animationController.handleInteractiveTranslaition(translation, state: state)
         }
     }
     
