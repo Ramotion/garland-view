@@ -50,7 +50,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let startOffset = (garlandCollection.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.cardsSize.height) / GarlandConfig.shared.cardsSize.height
+        let startOffset = (garlandCollection.contentOffset.y + GarlandConfig.shared.cardsSpacing + GarlandConfig.shared.headerSize.height) / GarlandConfig.shared.headerSize.height
         let maxHeight: CGFloat = 1.0
         let minHeight: CGFloat = 0.7
         let minAlpha: CGFloat = 0.0
@@ -61,8 +61,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         let alpha = max(minAlpha, min(maxHeight, 1.0 - offsetCounter * 2))
         let collapsedViewSize = max(0, min(maxHeight, 1.0 - offsetCounter))
         header.collapsedView.transform = CGAffineTransform(scaleX: 1.0, y: collapsedViewSize)
+        header.avatar.transform = header.collapsedView.transform
         header.collapsedView.alpha = alpha
-        headerView.frame.size.height = GarlandConfig.shared.cardsSize.height * height
+        header.frame.size.height = GarlandConfig.shared.headerSize.height * height
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
