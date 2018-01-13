@@ -70,7 +70,7 @@
 		4E0EB04F1EED8D1200DD634C = {
 			isa = PBXGroup;
 			children = (
-				4E0EB05B1EED8D1300DD634C /* Source */,
+				4E0EB05B1EED8D1300DD634C /* Sources */,
 				4E0EB05A1EED8D1300DD634C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -83,7 +83,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4E0EB05B1EED8D1300DD634C /* Source */ = {
+		4E0EB05B1EED8D1300DD634C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				398696772006051B0066E0C6 /* Controllers */,
@@ -92,7 +92,7 @@
 				39869676200605010066E0C6 /* Config */,
 				4E0EB0641EED8E2B00DD634C /* Resources */,
 			);
-			path = Source;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4E0EB0641EED8E2B00DD634C /* Resources */ = {
@@ -320,7 +320,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -344,7 +344,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Source/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

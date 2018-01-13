@@ -23,21 +23,21 @@
 		39465CD1200ACAD100ADE9B3 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39465CC1200ACAD100ADE9B3 /* CollectionCell.xib */; };
 		39465CD2200ACAD100ADE9B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39465CC2200ACAD100ADE9B3 /* AppDelegate.swift */; };
 		39465CD3200ACAD100ADE9B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39465CC3200ACAD100ADE9B3 /* Info.plist */; };
-		397D8300200ACC2400C43A36 /* GarlandView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397D82FF200ACC1800C43A36 /* GarlandView.framework */; };
-		397D8301200ACC2400C43A36 /* GarlandView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 397D82FF200ACC1800C43A36 /* GarlandView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		397D830C200AD14C00C43A36 /* GarlandView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397D830B200AD14200C43A36 /* GarlandView.framework */; };
+		397D830D200AD14C00C43A36 /* GarlandView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 397D830B200AD14200C43A36 /* GarlandView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		397D82FE200ACC1800C43A36 /* PBXContainerItemProxy */ = {
+		397D830A200AD14200C43A36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 397D82FA200ACC1700C43A36 /* GarlandView.xcodeproj */;
+			containerPortal = 397D8306200AD14200C43A36 /* GarlandView.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4E0EB0591EED8D1300DD634C;
 			remoteInfo = GarlandView;
 		};
-		397D8302200ACC2400C43A36 /* PBXContainerItemProxy */ = {
+		397D830E200AD14C00C43A36 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 397D82FA200ACC1700C43A36 /* GarlandView.xcodeproj */;
+			containerPortal = 397D8306200AD14200C43A36 /* GarlandView.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 4E0EB0581EED8D1300DD634C;
 			remoteInfo = GarlandView;
@@ -51,7 +51,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				397D8301200ACC2400C43A36 /* GarlandView.framework in Embed Frameworks */,
+				397D830D200AD14C00C43A36 /* GarlandView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,7 +76,7 @@
 		39465CC1200ACAD100ADE9B3 /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		39465CC2200ACAD100ADE9B3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39465CC3200ACAD100ADE9B3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		397D82FA200ACC1700C43A36 /* GarlandView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GarlandView.xcodeproj; path = ../../GarlandView.xcodeproj; sourceTree = "<group>"; };
+		397D8306200AD14200C43A36 /* GarlandView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GarlandView.xcodeproj; path = ../GarlandView.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				397D8300200ACC2400C43A36 /* GarlandView.framework in Frameworks */,
+				397D830C200AD14C00C43A36 /* GarlandView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +96,7 @@
 			children = (
 				39465CAE200ACAD100ADE9B3 /* Example */,
 				39465C9A200ACA3D00ADE9B3 /* Products */,
-				397D82FA200ACC1700C43A36 /* GarlandView.xcodeproj */,
+				397D8306200AD14200C43A36 /* GarlandView.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -171,10 +171,10 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		397D82FB200ACC1700C43A36 /* Products */ = {
+		397D8307200AD14200C43A36 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				397D82FF200ACC1800C43A36 /* GarlandView.framework */,
+				397D830B200AD14200C43A36 /* GarlandView.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				397D8303200ACC2400C43A36 /* PBXTargetDependency */,
+				397D830F200AD14C00C43A36 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -230,8 +230,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 397D82FB200ACC1700C43A36 /* Products */;
-					ProjectRef = 397D82FA200ACC1700C43A36 /* GarlandView.xcodeproj */;
+					ProductGroup = 397D8307200AD14200C43A36 /* Products */;
+					ProjectRef = 397D8306200AD14200C43A36 /* GarlandView.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -242,11 +242,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		397D82FF200ACC1800C43A36 /* GarlandView.framework */ = {
+		397D830B200AD14200C43A36 /* GarlandView.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = GarlandView.framework;
-			remoteRef = 397D82FE200ACC1800C43A36 /* PBXContainerItemProxy */;
+			remoteRef = 397D830A200AD14200C43A36 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -288,10 +288,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		397D8303200ACC2400C43A36 /* PBXTargetDependency */ = {
+		397D830F200AD14C00C43A36 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = GarlandView;
-			targetProxy = 397D8302200ACC2400C43A36 /* PBXContainerItemProxy */;
+			targetProxy = 397D830E200AD14C00C43A36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
