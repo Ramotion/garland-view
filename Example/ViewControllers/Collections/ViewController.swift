@@ -2,7 +2,6 @@
 //  ViewController.swift
 //  GarlandCollectionDemo
 //
-//  Created by Slava Yusupov.
 //  Copyright © 2017 Ramotion. All rights reserved.
 //
 
@@ -13,8 +12,8 @@ class ViewController: GarlandViewController {
 
     private let header: HeaderView = UIView.loadFromNib(withName: "HeaderView")!
     
-    let scrollViewContentOffsetMargin: CGFloat = -150.0
-    var headerIsSmall: Bool = false
+    fileprivate let scrollViewContentOffsetMargin: CGFloat = -150.0
+    fileprivate var headerIsSmall: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

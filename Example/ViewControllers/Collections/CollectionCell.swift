@@ -2,7 +2,6 @@
 //  CollectionCell.swift
 //  GarlandView
 //
-//  Created by Slava Yusupov.
 //  Copyright © 2017 Ramotion. All rights reserved.
 //
 

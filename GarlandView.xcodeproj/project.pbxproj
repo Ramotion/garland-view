@@ -69,7 +69,7 @@
 		4E0EB05D1EED8D1300DD634C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0EB0651EED8E5100DD634C /* GarlandCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandCollection.swift; sourceTree = "<group>"; };
 		4E0EB0691EED8F9F00DD634C /* GarlandConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandConfig.swift; sourceTree = "<group>"; };
-		4E0EB0701EEEB80B00DD634C /* Garland Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garland Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E0EB0701EEEB80B00DD634C /* Garland View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garland View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EB0721EEEB80C00DD634C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E0EB0791EEEB80F00DD634C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E0EB07C1EEEB80F00DD634C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 		4E0EB04F1EED8D1200DD634C = {
 			isa = PBXGroup;
 			children = (
-				4E0EB05B1EED8D1300DD634C /* GarlandView */,
-				4E0EB0711EEEB80B00DD634C /* GarlandCollectionDemo */,
+				4E0EB05B1EED8D1300DD634C /* Source */,
+				4E0EB0711EEEB80B00DD634C /* Example */,
 				4E0EB05A1EED8D1300DD634C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,12 +180,12 @@
 			isa = PBXGroup;
 			children = (
 				4E0EB0591EED8D1300DD634C /* GarlandView.framework */,
-				4E0EB0701EEEB80B00DD634C /* Garland Collection.app */,
+				4E0EB0701EEEB80B00DD634C /* Garland View.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4E0EB05B1EED8D1300DD634C /* GarlandView */ = {
+		4E0EB05B1EED8D1300DD634C /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				398696772006051B0066E0C6 /* Controllers */,
@@ -194,7 +194,7 @@
 				39869676200605010066E0C6 /* Config */,
 				4E0EB0641EED8E2B00DD634C /* Resources */,
 			);
-			path = GarlandView;
+			path = Source;
 			sourceTree = "<group>";
 		};
 		4E0EB0641EED8E2B00DD634C /* Resources */ = {
@@ -206,7 +206,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		4E0EB0711EEEB80B00DD634C /* GarlandCollectionDemo */ = {
+		4E0EB0711EEEB80B00DD634C /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				4E0EB0721EEEB80C00DD634C /* AppDelegate.swift */,
@@ -214,7 +214,7 @@
 				4EF4A6E01F8BB6630094BADF /* Extensions */,
 				4E0EB0821EEEB85800DD634C /* Resources */,
 			);
-			path = GarlandCollectionDemo;
+			path = Example;
 			sourceTree = "<group>";
 		};
 		4E0EB0821EEEB85800DD634C /* Resources */ = {
@@ -283,7 +283,7 @@
 			);
 			name = GarlandCollectionDemo;
 			productName = GarlandCollectionDemo;
-			productReference = 4E0EB0701EEEB80B00DD634C /* Garland Collection.app */;
+			productReference = 4E0EB0701EEEB80B00DD634C /* Garland View.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -525,7 +525,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GarlandView/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -549,7 +549,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = GarlandView/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -568,10 +568,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34MUF9YXTA;
-				INFOPLIST_FILE = GarlandCollectionDemo/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandCollectionDemo;
-				PRODUCT_NAME = "Garland Collection";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandViewDemo;
+				PRODUCT_NAME = "Garland View";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -584,10 +584,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34MUF9YXTA;
-				INFOPLIST_FILE = GarlandCollectionDemo/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandCollectionDemo;
-				PRODUCT_NAME = "Garland Collection";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandViewDemo;
+				PRODUCT_NAME = "Garland View";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
