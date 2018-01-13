@@ -1,17 +1,11 @@
-//
-//  garlandCollectionController.swift
-//  garlandCollection
-//
-//  Created by Slava Yusupov.
-//  Copyright © 2017 Ramotion. All rights reserved.
-//
+// Copyright © 2017 Ramotion. All rights reserved.
 
 import Foundation
 import UIKit
 
 open class GarlandViewController: UIViewController {
         
-    public var nextViewController: ((GarlandPresentAnimationController.TransitionDirection) -> GarlandViewController)?
+    public var nextViewController: ((GarlandAnimationController.TransitionDirection) -> GarlandViewController)?
     
     public let garlandCollection = GarlandCollection()
     public var backgroundHeader = UIView()
@@ -22,15 +16,12 @@ open class GarlandViewController: UIViewController {
     
     open var animationXDest: CGFloat = 0.0
     open var selectedCardIndex: IndexPath = IndexPath()
-    open var isPresenting = false
+    internal var isPresenting = false
     
-    fileprivate let garlandPresentAnimationController = GarlandPresentAnimationController()
-        
+    private var transitionDelegate: GarlandTransitioningDelegate?
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
-        modalPresentationStyle = .custom
-        transitioningDelegate = self
         
         //setup garland collection view
         garlandCollection.frame = CGRect(x: 0, y: GarlandConfig.shared.headerVerticalOffset, width: view.bounds.width, height: view.bounds.height - GarlandConfig.shared.headerVerticalOffset)
@@ -42,26 +33,13 @@ open class GarlandViewController: UIViewController {
         
         //add horizontal pan gesture recognizer
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture))
+        panGesture.delegate = self
         view.addGestureRecognizer(panGesture)
     }
     
-    @objc func handleGesture(gesture: UIPanGestureRecognizer) {
-        let velocity = gesture.velocity(in: view)
-        let translation = gesture.translation(in: view)
-        
-        if velocity.x > 0, translation.x > 15 {
-            performTransition(direction: .right)
-        } else if translation.x < -15 {
-            performTransition(direction: .left)
-        }
-    }
-    
-    private func performTransition(direction: GarlandPresentAnimationController.TransitionDirection) {
-        guard !isPresenting else { return }
-        guard let vc = nextViewController?(direction) else { return }
-        isPresenting = true
-        vc.garlandPresentAnimationController.transitionDirection = direction
-        present(vc, animated: true, completion: nil)
+    //MARK: Public methods
+    public func performTransition(direction: GarlandAnimationController.TransitionDirection) {
+        performTransition(direction: direction, isInteractive: false)
     }
     
     open func setupHeader(_ headerView: UIView) {
@@ -77,10 +55,52 @@ open class GarlandViewController: UIViewController {
 }
 
 
-//MARK: Setup
-public extension GarlandViewController {
+//MARK: Transition methods
+extension GarlandViewController: UIGestureRecognizerDelegate {
     
-    fileprivate func setupBackground() {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard let panGesture = gestureRecognizer as? UIPanGestureRecognizer else { return false }
+        let translation = panGesture.translation(in: view)
+        return translation.x != 0 && translation.y == 0
+    }
+    
+    @objc private func handleGesture(gesture: UIPanGestureRecognizer) {
+        if gesture.state == .began {
+            let translation = gesture.translation(in: view)
+            let direction: GarlandAnimationController.TransitionDirection = translation.x > 0 ? .right : .left
+            performTransition(direction: direction, isInteractive: true)
+        }
+        
+        if let presentedVC = (presentedViewController as? GarlandViewController),
+            let transitionDelegate = presentedVC.transitioningDelegate as? GarlandTransitioningDelegate {
+            transitionDelegate.animationController.handleGesture(pan: gesture)
+        }
+    }
+    
+    private func performTransition(direction: GarlandAnimationController.TransitionDirection, isInteractive: Bool) {
+        guard !isPresenting else { return }
+        guard let vc = nextViewController?(direction) else { return }
+        isPresenting = true
+        
+        let transitionDelegate = GarlandTransitioningDelegate()
+        transitionDelegate.animationController.transitionDirection = direction
+        transitionDelegate.animationController.isInteractive = isInteractive
+        if #available(iOS 10.0, *) {
+            transitionDelegate.animationController.wantsInteractiveStart = isInteractive
+        }
+        vc.modalPresentationStyle = .custom
+        vc.transitionDelegate = transitionDelegate
+        vc.transitioningDelegate = transitionDelegate
+        
+        present(vc, animated: true, completion: nil)
+    }
+}
+
+
+//MARK: Setup & configuration methods
+private extension GarlandViewController {
+    
+    private func setupBackground() {
         let config = GarlandConfig.shared
         backgroundHeader.frame.size = CGSize(width: UIScreen.main.bounds.width, height: config.backgroundHeaderHeight)
         backgroundHeader.frame.origin.x = 0
@@ -89,7 +109,7 @@ public extension GarlandViewController {
         view.insertSubview(backgroundHeader, at: 0)
     }
     
-    fileprivate func setupFakeHeaders() {
+    private func setupFakeHeaders() {
         let config = GarlandConfig.shared
         let size = CGSize(width: config.headerSize.width/1.6, height: config.headerSize.height/1.6)
         let verticalPosition = garlandCollection.frame.origin.y + (GarlandConfig.shared.headerSize.height - size.height)/2
@@ -107,16 +127,5 @@ public extension GarlandViewController {
         leftFakeHeader.backgroundColor = config.fakeHeaderColor
         leftFakeHeader.layer.cornerRadius = config.cardRadius
         view.addSubview(leftFakeHeader)
-    }
-}
-
-extension GarlandViewController: UIViewControllerTransitioningDelegate {
-    
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return garlandPresentAnimationController
-    }
-    
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return garlandPresentAnimationController
     }
 }

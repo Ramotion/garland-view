@@ -1,20 +1,16 @@
-//
-//  GarlandPresentAnimationController.swift
-//  GarlandView
-//
-//  Created by Slava Yusupov.
-//  Copyright © 2017 Ramotion. All rights reserved.
-//
+// Copyright © 2017 Ramotion. All rights reserved.
 
 import Foundation
 import UIKit
 
-public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+public class GarlandAnimationController: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning {
     
     public enum TransitionDirection {
         case left
         case right
     }
+    
+    var isInteractive: Bool = false
     
     var transitionDirection: TransitionDirection = .right
     private var finalFromXFrame: CGFloat {
@@ -185,9 +181,39 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
             }
             fromHeaderSnapshot.removeFromSuperview()
             toHeaderSnapshot.removeFromSuperview()
-            fromVC.view.removeFromSuperview()
+            if !transitionContext.transitionWasCancelled {
+                fromVC.view.removeFromSuperview()
+            } else {
+                fromVC.headerView.alpha = 1
+                fromVC.garlandCollection.alpha = 1
+                fromVC.isPresenting = false
+            }
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         })
+    }
+    
+    func handleGesture(pan: UIPanGestureRecognizer) {
+        guard let targetView = pan.view else { return }
+        
+        let translation = pan.translation(in: targetView)
+        let distance = UIScreen.main.bounds.width
+        let directedTranslation = transitionDirection == .left ? -translation.x : translation.x
+        let d = min(max(0, (directedTranslation / distance)), 1)
+        
+        switch (pan.state) {
+        case .began, .changed:
+            update(d)
+        default: // .Ended, .Cancelled, .Failed ...
+            isInteractive = false
+            let translationThreshold: CGFloat = 0.35
+            let velocityThreshold: CGFloat = 400
+            let v = pan.velocity(in: targetView).x
+            if abs(v) >= velocityThreshold {
+                v > 0 ? cancel() : finish()
+            } else {
+                d >= translationThreshold ? finish() : cancel()
+            }
+        }
     }
 }
 
