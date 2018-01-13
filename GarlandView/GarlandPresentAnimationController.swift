@@ -44,7 +44,15 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
         toVC.view.frame = UIScreen.main.bounds
         toVC.view.layoutSubviews()
         
-        let toHeaderSnapshot = toVC.headerView.snapshotView(afterScreenUpdates: true) ?? fromHeaderSnapshot
+        guard let toHeaderSnapshot = toVC.headerView.snapshotView(afterScreenUpdates: true),
+            let rightFakeHeaderSnapshot = toVC.rightFakeHeader.snapshotView(afterScreenUpdates: true),
+            let leftFakeHeaderSnapshot = toVC.leftFakeHeader.snapshotView(afterScreenUpdates: true) else {
+            
+            transitionContext.completeTransition(false)
+            return
+        }
+        
+        
         let headerStartFrame = fromVC.view.convert(fromVC.headerView.frame, to: containerView)
         let headerFinalFrame = CGRect(origin: headerStartFrame.origin, size: toHeaderSnapshot.frame.size)
         
@@ -108,19 +116,27 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
         
         let toFakeHeader = finalFromXFrame == 0 ? toVC.rightFakeHeader : toVC.leftFakeHeader
         let fromFakeHeader = finalFromXFrame == 0 ? toVC.leftFakeHeader : toVC.rightFakeHeader
+        let toFakeHeaderSnapshot = finalFromXFrame == 0 ? rightFakeHeaderSnapshot : leftFakeHeaderSnapshot
+        let fromFakeHeaderSnapshot = finalFromXFrame == 0 ? leftFakeHeaderSnapshot : rightFakeHeaderSnapshot
         
         let headerToFrame: CGRect = toVC.view.convert(toFakeHeader.frame, to: containerView)
         let headerFromFrame: CGRect = toVC.view.convert(fromFakeHeader.frame, to: containerView)
         
+        toFakeHeaderSnapshot.frame = headerToFrame
+        fromFakeHeaderSnapshot.frame = headerFinalFrame
         toHeaderSnapshot.frame = headerToFrame
         toHeaderSnapshot.alpha = 0
+        containerView.addSubview(toFakeHeaderSnapshot)
+        containerView.addSubview(fromFakeHeaderSnapshot)
         containerView.addSubview(toHeaderSnapshot)
         
         //hide origin views
-        fromVC.headerView.alpha = 0
+        fromFakeHeaderSnapshot.alpha = 0
+        toFakeHeader.alpha = 0
         toVC.headerView.alpha = 0
-        fromVC.garlandCollection.alpha = 0
         toVC.garlandCollection.alpha = 0
+        fromVC.headerView.alpha = 0
+        fromVC.garlandCollection.alpha = 0
         
         AnimationHelper.perspectiveTransformForContainerView(containerView: containerView)
         let duration = transitionDuration(using: transitionContext)
@@ -129,17 +145,19 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1, animations: {
                 toHeaderSnapshot.alpha = 1
-                toFakeHeader.alpha = 0
+                toFakeHeaderSnapshot.alpha = 0
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
                 overlappedCells.forEach { $0.alpha = 0 }
             })
             
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.8, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
                 
                 fromHeaderSnapshot.frame = headerFromFrame
+                fromFakeHeaderSnapshot.frame = headerFromFrame
                 toHeaderSnapshot.frame = headerFinalFrame
+                toFakeHeaderSnapshot.frame = headerFinalFrame
                 
                 fromHeaderSnapshot.alpha = 0.2
                 toHeaderSnapshot.alpha = 1
@@ -170,12 +188,14 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
             
             UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1, animations: {
                 fromHeaderSnapshot.alpha = 0
-                fromFakeHeader.alpha = 1
+                fromFakeHeaderSnapshot.alpha = 1
                 toFakeHeader.alpha = 1
             })
         }, completion: { _ in
             toVC.garlandCollection.alpha = 1.0
             toVC.headerView.alpha = 1
+            toVC.leftFakeHeader.alpha = 1
+            toVC.rightFakeHeader.alpha = 1
             
             for snap in visibleFromSnapshots {
                 snap.removeFromSuperview()
@@ -183,6 +203,8 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
             for snap in visibleToSnapshots {
                 snap.removeFromSuperview()
             }
+            leftFakeHeaderSnapshot.removeFromSuperview()
+            rightFakeHeaderSnapshot.removeFromSuperview()
             fromHeaderSnapshot.removeFromSuperview()
             toHeaderSnapshot.removeFromSuperview()
             fromVC.view.removeFromSuperview()
