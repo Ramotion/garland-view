@@ -112,7 +112,6 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
         fromHeaderSnapshot.layer.shadowColor = config.cardShadowColor.cgColor
         fromHeaderSnapshot.layer.shadowOpacity = config.cardShadowOpacity
         fromHeaderSnapshot.layer.shadowRadius = config.cardShadowRadius
-        containerView.addSubview(fromHeaderSnapshot)
         
         let toFakeHeader = finalFromXFrame == 0 ? toVC.rightFakeHeader : toVC.leftFakeHeader
         let fromFakeHeader = finalFromXFrame == 0 ? toVC.leftFakeHeader : toVC.rightFakeHeader
@@ -123,15 +122,17 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
         let headerFromFrame: CGRect = toVC.view.convert(fromFakeHeader.frame, to: containerView)
         
         toFakeHeaderSnapshot.frame = headerToFrame
-        fromFakeHeaderSnapshot.frame = headerFinalFrame
+        fromFakeHeaderSnapshot.frame = headerStartFrame
         toHeaderSnapshot.frame = headerToFrame
         toHeaderSnapshot.alpha = 0
+        
         containerView.addSubview(toFakeHeaderSnapshot)
         containerView.addSubview(fromFakeHeaderSnapshot)
         containerView.addSubview(toHeaderSnapshot)
+        containerView.addSubview(fromHeaderSnapshot)
         
         //hide origin views
-        fromFakeHeaderSnapshot.alpha = 0
+        //fromFakeHeaderSnapshot.alpha = 0
         toFakeHeader.alpha = 0
         toVC.headerView.alpha = 0
         toVC.garlandCollection.alpha = 0
@@ -143,9 +144,9 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
         
         UIView.animateKeyframes(withDuration: duration, delay: 0, options: .calculationModeLinear, animations: {
             
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.1, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
                 toHeaderSnapshot.alpha = 1
-                toFakeHeaderSnapshot.alpha = 0
+                //toFakeHeaderSnapshot.alpha = 0
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3, animations: {
@@ -181,17 +182,17 @@ public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimat
                 }
             })
             
-            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.01, animations: {
-                fromFakeHeader.transform = .identity
-                fromFakeHeader.alpha = 0
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
+                fromHeaderSnapshot.alpha = 0
+                //fromFakeHeaderSnapshot.alpha = 1
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1, animations: {
-                fromHeaderSnapshot.alpha = 0
-                fromFakeHeaderSnapshot.alpha = 1
                 toFakeHeader.alpha = 1
             })
         }, completion: { _ in
+            
+            fromFakeHeader.transform = .identity
             toVC.garlandCollection.alpha = 1.0
             toVC.headerView.alpha = 1
             toVC.leftFakeHeader.alpha = 1
