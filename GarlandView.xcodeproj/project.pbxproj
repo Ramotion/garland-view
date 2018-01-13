@@ -7,79 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39465C8C2008F40600ADE9B3 /* UserCardPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC226E1F00880A007C92E8 /* UserCardPresentAnimationController.swift */; };
-		39465C8D2008F40600ADE9B3 /* UserCardDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC22741F028782007C92E8 /* UserCardDismissAnimationController.swift */; };
-		3986967B2007B4C30066E0C6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3986967A2007B4C30066E0C6 /* HeaderView.swift */; };
-		3986967D2007B5310066E0C6 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3986967C2007B5310066E0C6 /* HeaderView.xib */; };
-		39A59C892004C468007F8ECF /* UserCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C7F2004C468007F8ECF /* UserCardViewController.xib */; };
-		39A59C8A2004C468007F8ECF /* CardCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C802004C468007F8ECF /* CardCollectionCell.xib */; };
-		39A59C8B2004C468007F8ECF /* UserCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C812004C468007F8ECF /* UserCardViewController.swift */; };
-		39A59C8C2004C468007F8ECF /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C832004C468007F8ECF /* CollectionCell.swift */; };
-		39A59C8D2004C468007F8ECF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A59C842004C468007F8ECF /* ViewController.swift */; };
-		39A59C8F2004C468007F8ECF /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A59C862004C468007F8ECF /* CollectionCell.xib */; };
-		39A59C9220050475007F8ECF /* CardCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8475181F05880C0016CDBA /* CardCollectionCell.swift */; };
 		4E0EB05E1EED8D1300DD634C /* GarlandView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E0EB05C1EED8D1300DD634C /* GarlandView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4E0EB0671EED8E5100DD634C /* GarlandCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EB0651EED8E5100DD634C /* GarlandCollection.swift */; };
 		4E0EB06A1EED8F9F00DD634C /* GarlandConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EB0691EED8F9F00DD634C /* GarlandConfig.swift */; };
-		4E0EB0731EEEB80C00DD634C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0EB0721EEEB80C00DD634C /* AppDelegate.swift */; };
-		4E0EB07A1EEEB80F00DD634C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EB0791EEEB80F00DD634C /* Assets.xcassets */; };
-		4E0EB07D1EEEB80F00DD634C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E0EB07B1EEEB80F00DD634C /* LaunchScreen.storyboard */; };
-		4E0EB0961EEECDED00DD634C /* GarlandView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0EB0591EED8D1300DD634C /* GarlandView.framework */; };
-		4E0EB0971EEECDED00DD634C /* GarlandView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0EB0591EED8D1300DD634C /* GarlandView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4EC9B06B1EF2F4A500A0A0AF /* GarlandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */; };
 		4EC9B06D1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */; };
-		4EF4A6E21F8BB6B60094BADF /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF4A6E11F8BB6B60094BADF /* UIView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4E0EB0981EEECDED00DD634C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4E0EB0501EED8D1300DD634C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4E0EB0581EED8D1300DD634C;
-			remoteInfo = GarlandView;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4E0EB09A1EEECDED00DD634C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				4E0EB0971EEECDED00DD634C /* GarlandView.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		3986967A2007B4C30066E0C6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		3986967C2007B5310066E0C6 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
-		39A59C7F2004C468007F8ECF /* UserCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCardViewController.xib; sourceTree = "<group>"; };
-		39A59C802004C468007F8ECF /* CardCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardCollectionCell.xib; sourceTree = "<group>"; };
-		39A59C812004C468007F8ECF /* UserCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardViewController.swift; sourceTree = "<group>"; };
-		39A59C832004C468007F8ECF /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
-		39A59C842004C468007F8ECF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		39A59C862004C468007F8ECF /* CollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 		4E0EB0591EED8D1300DD634C /* GarlandView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GarlandView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0EB05C1EED8D1300DD634C /* GarlandView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GarlandView.h; sourceTree = "<group>"; };
 		4E0EB05D1EED8D1300DD634C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E0EB0651EED8E5100DD634C /* GarlandCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandCollection.swift; sourceTree = "<group>"; };
 		4E0EB0691EED8F9F00DD634C /* GarlandConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandConfig.swift; sourceTree = "<group>"; };
-		4E0EB0701EEEB80B00DD634C /* Garland View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garland View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E0EB0721EEEB80C00DD634C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E0EB0791EEEB80F00DD634C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4E0EB07C1EEEB80F00DD634C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4E0EB07E1EEEB81000DD634C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4E8475181F05880C0016CDBA /* CardCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionCell.swift; sourceTree = "<group>"; };
 		4EC9B06A1EF2F4A400A0A0AF /* GarlandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandViewController.swift; sourceTree = "<group>"; };
 		4EC9B06C1EF2F68E00A0A0AF /* GarlandPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GarlandPresentAnimationController.swift; sourceTree = "<group>"; };
-		4EDC226E1F00880A007C92E8 /* UserCardPresentAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardPresentAnimationController.swift; sourceTree = "<group>"; };
-		4EDC22741F028782007C92E8 /* UserCardDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCardDismissAnimationController.swift; sourceTree = "<group>"; };
-		4EF4A6E11F8BB6B60094BADF /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIView.swift; path = Extensions/UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +29,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E0EB06D1EEEB80B00DD634C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E0EB0961EEECDED00DD634C /* GarlandView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,45 +67,10 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		39A59C7D2004C468007F8ECF /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				39A59C7E2004C468007F8ECF /* UserCard */,
-				39A59C822004C468007F8ECF /* Collections */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		39A59C7E2004C468007F8ECF /* UserCard */ = {
-			isa = PBXGroup;
-			children = (
-				39A59C812004C468007F8ECF /* UserCardViewController.swift */,
-				39A59C7F2004C468007F8ECF /* UserCardViewController.xib */,
-				4E8475181F05880C0016CDBA /* CardCollectionCell.swift */,
-				39A59C802004C468007F8ECF /* CardCollectionCell.xib */,
-				4EDC226E1F00880A007C92E8 /* UserCardPresentAnimationController.swift */,
-				4EDC22741F028782007C92E8 /* UserCardDismissAnimationController.swift */,
-			);
-			path = UserCard;
-			sourceTree = "<group>";
-		};
-		39A59C822004C468007F8ECF /* Collections */ = {
-			isa = PBXGroup;
-			children = (
-				39A59C842004C468007F8ECF /* ViewController.swift */,
-				39A59C832004C468007F8ECF /* CollectionCell.swift */,
-				39A59C862004C468007F8ECF /* CollectionCell.xib */,
-				3986967A2007B4C30066E0C6 /* HeaderView.swift */,
-				3986967C2007B5310066E0C6 /* HeaderView.xib */,
-			);
-			path = Collections;
-			sourceTree = "<group>";
-		};
 		4E0EB04F1EED8D1200DD634C = {
 			isa = PBXGroup;
 			children = (
 				4E0EB05B1EED8D1300DD634C /* Source */,
-				4E0EB0711EEEB80B00DD634C /* Example */,
 				4E0EB05A1EED8D1300DD634C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -180,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				4E0EB0591EED8D1300DD634C /* GarlandView.framework */,
-				4E0EB0701EEEB80B00DD634C /* Garland View.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,35 +102,6 @@
 				4E0EB05D1EED8D1300DD634C /* Info.plist */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		4E0EB0711EEEB80B00DD634C /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EB0721EEEB80C00DD634C /* AppDelegate.swift */,
-				39A59C7D2004C468007F8ECF /* ViewControllers */,
-				4EF4A6E01F8BB6630094BADF /* Extensions */,
-				4E0EB0821EEEB85800DD634C /* Resources */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
-		4E0EB0821EEEB85800DD634C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4E0EB0791EEEB80F00DD634C /* Assets.xcassets */,
-				4E0EB07B1EEEB80F00DD634C /* LaunchScreen.storyboard */,
-				4E0EB07E1EEEB81000DD634C /* Info.plist */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		4EF4A6E01F8BB6630094BADF /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4EF4A6E11F8BB6B60094BADF /* UIView.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,25 +136,6 @@
 			productReference = 4E0EB0591EED8D1300DD634C /* GarlandView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4E0EB06F1EEEB80B00DD634C /* GarlandCollectionDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4E0EB07F1EEEB81000DD634C /* Build configuration list for PBXNativeTarget "GarlandCollectionDemo" */;
-			buildPhases = (
-				4E0EB06C1EEEB80B00DD634C /* Sources */,
-				4E0EB06D1EEEB80B00DD634C /* Frameworks */,
-				4E0EB06E1EEEB80B00DD634C /* Resources */,
-				4E0EB09A1EEECDED00DD634C /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4E0EB0991EEECDED00DD634C /* PBXTargetDependency */,
-			);
-			name = GarlandCollectionDemo;
-			productName = GarlandCollectionDemo;
-			productReference = 4E0EB0701EEEB80B00DD634C /* Garland View.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -298,12 +148,6 @@
 				TargetAttributes = {
 					4E0EB0581EED8D1300DD634C = {
 						CreatedOnToolsVersion = 8.3.2;
-						LastSwiftMigration = 0920;
-						ProvisioningStyle = Automatic;
-					};
-					4E0EB06F1EEEB80B00DD634C = {
-						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 34MUF9YXTA;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
@@ -323,7 +167,6 @@
 			projectRoot = "";
 			targets = (
 				4E0EB0581EED8D1300DD634C /* GarlandView */,
-				4E0EB06F1EEEB80B00DD634C /* GarlandCollectionDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -333,19 +176,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E0EB06E1EEEB80B00DD634C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E0EB07D1EEEB80F00DD634C /* LaunchScreen.storyboard in Resources */,
-				4E0EB07A1EEEB80F00DD634C /* Assets.xcassets in Resources */,
-				39A59C8F2004C468007F8ECF /* CollectionCell.xib in Resources */,
-				39A59C892004C468007F8ECF /* UserCardViewController.xib in Resources */,
-				39A59C8A2004C468007F8ECF /* CardCollectionCell.xib in Resources */,
-				3986967D2007B5310066E0C6 /* HeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,42 +193,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4E0EB06C1EEEB80B00DD634C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E0EB0731EEEB80C00DD634C /* AppDelegate.swift in Sources */,
-				39A59C9220050475007F8ECF /* CardCollectionCell.swift in Sources */,
-				39A59C8B2004C468007F8ECF /* UserCardViewController.swift in Sources */,
-				39465C8D2008F40600ADE9B3 /* UserCardDismissAnimationController.swift in Sources */,
-				4EF4A6E21F8BB6B60094BADF /* UIView.swift in Sources */,
-				39A59C8D2004C468007F8ECF /* ViewController.swift in Sources */,
-				39A59C8C2004C468007F8ECF /* CollectionCell.swift in Sources */,
-				3986967B2007B4C30066E0C6 /* HeaderView.swift in Sources */,
-				39465C8C2008F40600ADE9B3 /* UserCardPresentAnimationController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4E0EB0991EEECDED00DD634C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4E0EB0581EED8D1300DD634C /* GarlandView */;
-			targetProxy = 4E0EB0981EEECDED00DD634C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		4E0EB07B1EEEB80F00DD634C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4E0EB07C1EEEB80F00DD634C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4E0EB05F1EED8D1300DD634C /* Debug */ = {
@@ -562,38 +357,6 @@
 			};
 			name = Release;
 		};
-		4E0EB0801EEEB81000DD634C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 34MUF9YXTA;
-				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandViewDemo;
-				PRODUCT_NAME = "Garland View";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4E0EB0811EEEB81000DD634C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 34MUF9YXTA;
-				INFOPLIST_FILE = Example/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandViewDemo;
-				PRODUCT_NAME = "Garland View";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -611,15 +374,6 @@
 			buildConfigurations = (
 				4E0EB0621EED8D1300DD634C /* Debug */,
 				4E0EB0631EED8D1300DD634C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4E0EB07F1EEEB81000DD634C /* Build configuration list for PBXNativeTarget "GarlandCollectionDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4E0EB0801EEEB81000DD634C /* Debug */,
-				4E0EB0811EEEB81000DD634C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

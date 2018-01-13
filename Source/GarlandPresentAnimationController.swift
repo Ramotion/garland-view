@@ -1,5 +1,5 @@
 //
-//  GarlandPresentAnimationController.swift
+//  GarlandAnimationController.swift
 //  GarlandView
 //
 //  Copyright © 2017 Ramotion. All rights reserved.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class GarlandPresentAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+public class GarlandAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     public enum TransitionDirection {
         case left

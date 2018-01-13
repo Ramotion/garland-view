@@ -2,8 +2,7 @@
 //  GarlandView.h
 //  GarlandView
 //
-//  Created by Slava Юсупов on 11.06.17.
-//  Copyright © 2017 Slava Юсупов. All rights reserved.
+//  Copyright © 2017 Ramotion. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

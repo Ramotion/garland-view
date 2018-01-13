@@ -10,7 +10,7 @@ import UIKit
 
 open class GarlandViewController: UIViewController {
         
-    public var nextViewController: ((GarlandPresentAnimationController.TransitionDirection) -> GarlandViewController)?
+    public var nextViewController: ((GarlandAnimationController.TransitionDirection) -> GarlandViewController)?
     
     public let garlandCollection = GarlandCollection()
     public var backgroundHeader = UIView()
@@ -23,7 +23,7 @@ open class GarlandViewController: UIViewController {
     open var selectedCardIndex: IndexPath = IndexPath()
     open var isPresenting = false
     
-    fileprivate let garlandPresentAnimationController = GarlandPresentAnimationController()
+    fileprivate let garlandAnimationController = GarlandAnimationController()
         
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +55,11 @@ open class GarlandViewController: UIViewController {
         }
     }
     
-    private func performTransition(direction: GarlandPresentAnimationController.TransitionDirection) {
+    private func performTransition(direction: GarlandAnimationController.TransitionDirection) {
         guard !isPresenting else { return }
         guard let vc = nextViewController?(direction) else { return }
         isPresenting = true
-        vc.garlandPresentAnimationController.transitionDirection = direction
+        vc.garlandAnimationController.transitionDirection = direction
         present(vc, animated: true, completion: nil)
     }
     
@@ -112,10 +112,10 @@ public extension GarlandViewController {
 extension GarlandViewController: UIViewControllerTransitioningDelegate {
     
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return garlandPresentAnimationController
+        return garlandAnimationController
     }
     
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return garlandPresentAnimationController
+        return garlandAnimationController
     }
 }
