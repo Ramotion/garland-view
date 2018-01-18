@@ -58,16 +58,22 @@ Use `GarlandConfig` to make your custom configuration.
 
 Take a look at the `Example` project for an integration example.
 
+## Licence
+
+Garland view is released under the MIT license.
+See [LICENSE](./LICENSE) for details.
+
+
 # Get the Showroom App for iOS to give it a try
 Try our UI components in our iOS app. Contact us if interested.
 
-<a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=fluid-slider&mt=8" >
+<a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=garland-view&mt=8" >
 <img src="https://github.com/ramotion/gliding-collection/raw/master/app_store@2x.png" width="117" height="34"></a>
-<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=fluid-slider/#Get_in_Touch">
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=garland-view/#Get_in_Touch">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
 <br>
 <br>
 
 Follow us for the latest updates:<br>
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/fluid-slider)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/garland-view)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)

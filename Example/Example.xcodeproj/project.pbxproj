@@ -59,7 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		39465C99200ACA3D00ADE9B3 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		39465C99200ACA3D00ADE9B3 /* Garland View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garland View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39465CAF200ACAD100ADE9B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39465CB1200ACAD100ADE9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39465CB3200ACAD100ADE9B3 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		39465C9A200ACA3D00ADE9B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				39465C99200ACA3D00ADE9B3 /* Example.app */,
+				39465C99200ACA3D00ADE9B3 /* Garland View.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 			);
 			name = Example;
 			productName = Example;
-			productReference = 39465C99200ACA3D00ADE9B3 /* Example.app */;
+			productReference = 39465C99200ACA3D00ADE9B3 /* Garland View.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -424,7 +424,7 @@
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandViewExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Garland View";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,7 +440,7 @@
 				INFOPLIST_FILE = Example/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.GarlandViewExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Garland View";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
