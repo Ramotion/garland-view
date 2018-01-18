@@ -1,5 +1,5 @@
 ![header](./header.png)
-<!--- ![preview](./preview.gif) --->
+![animation](./preview.gif)
 
 # Garland View
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
