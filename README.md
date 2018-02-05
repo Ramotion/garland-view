@@ -7,7 +7,7 @@
 [![codebeat badge](https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc)](https://codebeat.co/projects/github-com-ramotion-garland-view)
 
 # Check this library on other platforms:
-<a href="https://github.com/Ramotion/garland-view">
+<a href="https://github.com/Ramotion/garland-view-android">
 <img src="https://github.com/ramotion/navigation-stack/raw/master/Android_Java@2x.png" width="178" height="81"></a>
 
 **Looking for developers for your project?**<br>
