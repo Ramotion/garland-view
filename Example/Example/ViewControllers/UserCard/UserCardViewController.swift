@@ -46,13 +46,18 @@ class UserCardViewController: UIViewController {
         avatar.layer.borderWidth = 3.0
         avatar.layer.borderColor = #colorLiteral(red: 0.6901960784, green: 0.8196078431, blue: 0.4588235294, alpha: 1)
     }
-    
-    //MARK: Actions
+}
+
+
+//MARK: Actions
+extension UserCardViewController {
     @objc fileprivate func closeButtonAction() {
         dismiss(animated: true, completion: nil)
     }
 }
 
+
+//MARK: UICollection view delegate & data source methods
 extension UserCardViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
