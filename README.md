@@ -1,5 +1,7 @@
 ![header](./header.png)
-![animation](./preview.gif)
+<img src="https://github.com/Ramotion/garland-view/blob/master/garland-view.gif" width="600" height="450" />
+<br><br/>
+
 
 # Garland View
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
