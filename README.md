@@ -64,6 +64,9 @@ Use `GarlandConfig` to make your custom configuration.
 
 Take a look at the `Example` project for an integration example.
 
+
+This library is a part of a <a href="https://github.com/Ramotion/swift-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
+
 ## Licence
 
 Garland view is released under the MIT license.
