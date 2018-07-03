@@ -21,9 +21,9 @@ class UserCardDismissAnimationController: NSObject, UIViewControllerAnimatedTran
             let snapshotSubviews = fromVC.card.snapshotView(afterScreenUpdates: true),
             let cell = toVC.garlandCollection.cellForItem(at: toVC.selectedCardIndex) as? CollectionCell else {
                 
-                transitionContext.completeTransition(false)
+                CustomTransitionAnimator.alphaDismiss(using: transitionContext, duration: GarlandConfig.shared.animationDuration)
                 return
-        }
+        } 
         
         let containerView = transitionContext.containerView
         containerView.insertSubview(toVC.view, at: 0)

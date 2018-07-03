@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3907DD3620EBC47000D80589 /* AlphaTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907DD3520EBC47000D80589 /* AlphaTransition.swift */; };
 		39465CC4200ACAD100ADE9B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39465CAF200ACAD100ADE9B3 /* Assets.xcassets */; };
 		39465CC5200ACAD100ADE9B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39465CB0200ACAD100ADE9B3 /* LaunchScreen.storyboard */; };
 		39465CC6200ACAD100ADE9B3 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39465CB3200ACAD100ADE9B3 /* UIView.swift */; };
@@ -22,7 +23,6 @@
 		39465CD0200ACAD100ADE9B3 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39465CC0200ACAD100ADE9B3 /* HeaderView.swift */; };
 		39465CD1200ACAD100ADE9B3 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39465CC1200ACAD100ADE9B3 /* CollectionCell.xib */; };
 		39465CD2200ACAD100ADE9B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39465CC2200ACAD100ADE9B3 /* AppDelegate.swift */; };
-		39465CD3200ACAD100ADE9B3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39465CC3200ACAD100ADE9B3 /* Info.plist */; };
 		397D830C200AD14C00C43A36 /* GarlandView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397D830B200AD14200C43A36 /* GarlandView.framework */; };
 		397D830D200AD14C00C43A36 /* GarlandView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 397D830B200AD14200C43A36 /* GarlandView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -59,6 +59,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3907DD3520EBC47000D80589 /* AlphaTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphaTransition.swift; sourceTree = "<group>"; };
 		39465C99200ACA3D00ADE9B3 /* Garland View.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Garland View.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39465CAF200ACAD100ADE9B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39465CB1200ACAD100ADE9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3907DD3420EBC47000D80589 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				3907DD3520EBC47000D80589 /* AlphaTransition.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		39465C90200ACA3D00ADE9B3 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +123,7 @@
 				39465CC2200ACAD100ADE9B3 /* AppDelegate.swift */,
 				39465CB4200ACAD100ADE9B3 /* ViewControllers */,
 				39465CB2200ACAD100ADE9B3 /* Extensions */,
+				3907DD3420EBC47000D80589 /* Utility */,
 				39465CD4200ACAE000ADE9B3 /* Resources */,
 			);
 			path = Example;
@@ -208,7 +218,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Ramotion;
 				TargetAttributes = {
 					39465C98200ACA3D00ADE9B3 = {
@@ -262,7 +272,6 @@
 				39465CD1200ACAD100ADE9B3 /* CollectionCell.xib in Resources */,
 				39465CC4200ACAD100ADE9B3 /* Assets.xcassets in Resources */,
 				39465CC5200ACAD100ADE9B3 /* LaunchScreen.storyboard in Resources */,
-				39465CD3200ACAD100ADE9B3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +291,7 @@
 				39465CC8200ACAD100ADE9B3 /* UserCardDismissAnimationController.swift in Sources */,
 				39465CCD200ACAD100ADE9B3 /* CollectionCell.swift in Sources */,
 				39465CD0200ACAD100ADE9B3 /* HeaderView.swift in Sources */,
+				3907DD3620EBC47000D80589 /* AlphaTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +331,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -328,6 +339,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -378,6 +390,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -385,6 +398,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

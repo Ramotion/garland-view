@@ -21,7 +21,7 @@ class UserCardPresentAnimationController: NSObject, UIViewControllerAnimatedTran
             let _ = toVC.view.snapshotView(afterScreenUpdates: true),
             let fromCell = fromVC.garlandCollection.cellForItem(at: fromVC.selectedCardIndex) as? CollectionCell else {
                 
-                transitionContext.completeTransition(false)
+                CustomTransitionAnimator.alphaPresent(using: transitionContext, duration: GarlandConfig.shared.animationDuration)
                 return
         }
         
