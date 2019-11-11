@@ -60,6 +60,7 @@ open class GarlandViewController: UIViewController {
         guard let vc = nextViewController?(direction) else { return }
         isPresenting = true
         vc.garlandAnimationController.transitionDirection = direction
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
     

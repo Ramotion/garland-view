@@ -10,12 +10,12 @@ import UIKit
 
 extension UIView {
     
-    func findConstraints(attribute: NSLayoutAttribute) -> [NSLayoutConstraint] {
+    func findConstraints(attribute: NSLayoutConstraint.Attribute) -> [NSLayoutConstraint] {
         let result = self.constraints.filter { $0.firstAttribute == attribute && $0.firstItem as? NSObject == self }
         return result
     }
     
-    func findSuperviewConstraints(attribute: NSLayoutAttribute) -> [NSLayoutConstraint] {
+    func findSuperviewConstraints(attribute: NSLayoutConstraint.Attribute) -> [NSLayoutConstraint] {
         let result = superview?.constraints.filter { $0.firstAttribute == attribute && $0.firstItem as? NSObject == self }
         return result ?? []
     }

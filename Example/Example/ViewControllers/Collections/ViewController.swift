@@ -45,6 +45,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedCardIndex = indexPath
         let cardController = UserCardViewController.init(nibName: "UserCardViewController", bundle: nil)
+        cardController.modalPresentationStyle = .fullScreen
         present(cardController, animated: true, completion: nil)
     }
     
