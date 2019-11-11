@@ -64,7 +64,6 @@ public class GarlandAnimationController: NSObject, UIViewControllerAnimatedTrans
             guard let cellSnap = cell.snapshotView(afterScreenUpdates: true) else { continue }
             let convertedCoord = fromCollection.convert(CGPoint(x: cell.frame.origin.x, y: cell.frame.origin.y), to: nil)
             cellSnap.frame = CGRect(x: (convertedCoord.x), y: (convertedCoord.y), width: cell.frame.width, height: cell.frame.height)
-            cellSize.append(CGSize(width: cell.frame.width, height: cell.frame.height))
             if convertedCoord.y < headerStartFrame.minY {
                 cellSnap.alpha = 0
             } else if convertedCoord.y < headerStartFrame.maxY {
@@ -90,6 +89,7 @@ public class GarlandAnimationController: NSObject, UIViewControllerAnimatedTrans
             if finalX == UIScreen.main.bounds.width {
                 finalX += cellSnap.frame.width
             }
+            cellSize.append(CGSize(width: cell.frame.width, height: cell.frame.height))            
             cellSnap.frame.origin = CGPoint(x: UIScreen.main.bounds.width - finalX, y: convertedCoord.y + cellSnap.frame.height/2)
             cellSnap.alpha = 0.2
             let config = GarlandConfig.shared
